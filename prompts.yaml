@@ -1,0 +1,160 @@
+# case_study_maths: |
+#   Based on the analysis of the provided file, here is the consolidated prompt for generating a complete Case-Based Study (CBS) Item for NCERT Mathematics, designed for the CBSE format.
+
+#   ## Case-Based Study Item Generation Prompt
+
+#   Please generate a complete Case-Based Study (CBS) Item for the CBSE format.
+
+#   **Target Details:**
+
+#   - Grade: 8
+#   - NCERT Mathematics Chapter/Unit: 1. Patterns in Mathematics
+#   - Topic: Patterns in Number
+
+#   ---
+
+#   ## 1. CBS Material Requirements
+
+#   The source material must be an age-appropriate, real-life scenario that applies the mathematical concepts being tested (e.g., geometry, construction, finance, data analysis).
+
+#   * **Content Relevance:** The stimulus must directly reflect the given chapter/topic, serving as a practical representation of the mathematical concept.
+#   * **Material Format:** The case/source material must encourage critical thinking by requiring students to synthesize information from multiple input channels, such as **text, images, tables, or graphs**.
+#   * **Stimulus Diagram (If Needed):** If the concept hasn't been fully covered in the textbook, include a stimulus diagram (e.g., geometric figures, graphs, charts, 3D objects) to guide students' thinking.
+
+#   ---
+
+#   ## 2. Item Structure and Cognitive Constraints
+
+#   The item must have **three distinct parts (a, b, and c)**, totaling **4 Marks**, and must be in **constructed response** format (not selected response).
+
+#   | Item Part | Marks | DOK Level | Focus / Skill Area | Question Type Expectation | Skills to Cover |
+#   | :--- | :--- | :--- | :--- | :--- | :--- |
+#   | **(a)** | **1** | **DOK 1 (Knowing)** | Recall, Identify, Order, Compute | Recall or identify a fact, formula, or concept **directly from the context** | Focuses on recall of facts, identifying concepts, recognizing patterns, or recalling relevant formulas |
+#   | **(b)** | **1** | **DOK 2 (Applying)** | Formulating, Implementing, Representing | Apply a formula, perform routine calculations, or select the correct method **using data** | Focuses on applying the concept or formula to solve problems, represent mathematical ideas, or compute solutions using basic procedures |
+#   | **(c)** | **2** | **DOK 3 (Reasoning)** | Analyzing, Justifying, Integrating | Multi-step reasoning, explanation, or generalization **based on context** | Focuses on multi-step problem-solving requiring justification of answers, analyzing relationships, interpreting results, and drawing conclusions |
+
+#   **Key Constraints:**
+#   * Each part must build upon the previous one, progressing in complexity.
+#   * Avoid overlap between parts.
+#   * **Skill Selection Rule:**  
+#     - For **Part (a)** and **Part (b)**, select **only one skill** corresponding to their respective DOK levels (e.g., Identify for DOK 1, Implement for DOK 2).  
+#     - For **Part (c)**, integrate **multiple DOK 3-level skills** (e.g., Analyze + Justify or Interpret + Explain) to ensure deeper reasoning and multi-step problem-solving.
+#   * Part (c) must align with DOK 3 rigor, requiring **explanation, analysis, or justification** for a deeper understanding, not just substitution or basic calculation.
+
+#   ---
+
+#   ## 3. Output Format Requirements
+
+#   The final generated item must include the following sections:
+
+#   ### 1. Chosen Skill Set
+
+#   * Clearly state the selected cognitive path, with one skill from each DOK level (DOK 1, DOK 2, DOK 3).
+#   * *Example: Chosen Skill Set: Identify → Implement → Justify*
+
+#   ### 2. CBS/SI Material
+
+#   * Provide the final, real-life linked source material (text, data, and any relevant description or image/diagram).
+
+#   ### 3. Item Questions (a, b, c)
+
+#   * **Part (a) (1 Mark, DOK 1):** A straightforward question assessing recall or identification from the source material.
+#   * **Part (b) (1 Mark, DOK 2):** A question requiring the application of the formula or concept, often involving calculations or representations.
+#   * **Part (c) (2 Marks, DOK 3):** A higher-order question that involves reasoning—multi-step problem-solving, justification, or generalization.
+
+#   ### 4. Detailed Answer Key
+
+#   * Provide step-by-step solutions for all three parts.
+#   * Clearly explain the solution for each part.
+#   * Break down the answer into **value points** for scoring (e.g., 0.5 or 1 mark per point).
+#   * **Justify each step in Part (c)**, especially when justifying reasoning or explaining growth patterns or simplifying using mathematical laws.
+
+
+
+case_study_maths: |
+  Based on the analysis of the provided file, here is the consolidated prompt for generating a complete Case-Based Study (CBS) Item for NCERT Mathematics, designed for the CBSE format.
+
+  ## Case-Based Study Item Generation Prompt
+
+  Please generate a complete Case-Based Study (CBS) Item for the CBSE format.
+
+  **Target Details:**
+
+  - Grade: {{Grade}}
+    - Curriculam - {{Curriculam}}
+    - Subject - {{Subject}}
+    - Chapter/Unit: {{Chapter}}
+    - Topic: {{Topic}}
+    IMPORTANT -> No of questions to generate - {{Number_of_questions}} (case study questions with different scenario)
+    ---
+  - Output should be in Markdown format 
+  - Based on curriculam and subject you need to give names and currency and other details to the question if needed
+  ## 1. CBS Material Requirements
+
+  The source material must be an age-appropriate, real-life scenario that applies the mathematical concepts being tested (e.g., geometry, construction, finance, data analysis).
+
+  * **Content Relevance:** The stimulus must directly reflect the given chapter/topic, serving as a practical representation of the mathematical concept.
+  * **Material Format:** The case/source material must encourage critical thinking by requiring students to synthesize information from multiple input channels, such as **text, images, tables, or graphs**.
+  * **Stimulus Diagram (If Needed):** If the concept hasn't been fully covered in the textbook, include a stimulus diagram (e.g., geometric figures, graphs, charts, 3D objects) to guide students' thinking.
+  * 
+  ---
+
+  ## 2. Item Structure and Cognitive Constraints
+
+  The item must have **three distinct parts (a, b, and c)**, totaling **4 Marks**, and must be in **constructed response** format (not selected response).
+
+  | Item Part | Marks | DOK Level | Focus / Skill Area | Question Type Expectation | Skills to Cover |
+  | :--- | :--- | :--- | :--- | :--- | :--- |
+  | **(a)** | **1** | **DOK 1 (Knowing)** | Recall, Identify, Order, Compute | Recall or identify a fact, formula, or concept **directly from the context** | Focuses on recall of facts, identifying concepts, recognizing patterns, or recalling relevant formulas |
+  | **(b)** | **1** | **DOK 2 (Applying)** | Formulating, Implementing, Representing | Apply a formula, perform routine calculations, or select the correct method **using data** | Focuses on applying the concept or formula to solve problems, represent mathematical ideas, or compute solutions using basic procedures |
+  | **(c)** | **2** | **DOK 3 (Reasoning)** | Analyzing, Justifying, Integrating | Multi-step reasoning, explanation, or generalization **based on context** | Focuses on multi-step problem-solving requiring justification of answers, analyzing relationships, interpreting results, and drawing conclusions |
+
+  **Key Constraints:**
+  * Each part must build upon the previous one, progressing in complexity.
+  * Avoid overlap between parts.
+  * **Skill Selection Rule:**  
+    - For **Part (a)** and **Part (b)**, select **only one skill** corresponding to their respective DOK levels (e.g., Identify for DOK 1, Implement for DOK 2).  
+    - For **Part (c)**, integrate **multiple DOK 3-level skills** (e.g., Analyze + Justify =) to ensure deeper reasoning and multi-step problem-solving.
+  * Part (c) must align with DOK 3 rigor, requiring **explanation, analysis, or justification** for a deeper understanding, not just substitution or basic calculation.
+  * IMPORTANT ->  Only select Skill Area from the above table (DONT MAKE UP ANY SKILLS)
+  ---
+
+  ## 3. Output Format Requirements
+
+
+  The final generated item must include the following sections:
+
+  ### 1. Chosen Skill Set
+
+  * Clearly state the selected cognitive path, with one skill from each DOK level (DOK 1, DOK 2, DOK 3).
+  * *Example: Chosen Skill Set: Identify → Implement → Justify*
+
+  ### 2. CBS
+
+  * Provide the final, real-life linked source material (text, data, and any relevant description or image/diagram).
+  * **Visual Prompt:** If an image, graph, or diagram is needed, include a **text prompt describing the visual** for generation rather than the actual image. Example: “Draw a bar graph showing the number of students in each grade receiving different marks, highlighting a pattern in even numbers.”
+
+
+  ### 3. Item Questions (a, b, c)
+
+  * **Part (a) (1 Mark, DOK 1):** A straightforward question assessing recall or identification from the source material.
+  * **Part (b) (1 Mark, DOK 2):** A question requiring the application of the formula or concept, often involving calculations or representations.
+  * **Part (c) (2 Marks, DOK 3):** A higher-order question that involves reasoning—multi-step problem-solving, justification, or generalization.
+
+  ### 4. Detailed Answer Key
+
+  * Provide step-by-step solutions for all three parts.
+  * Clearly explain the solution for each part.
+  * Break down the answer into **value points** for scoring (e.g., 0.5 or 1 mark per point).
+  * **Justify each step in Part (c)**, especially when justifying reasoning or explaining growth patterns or simplifying using mathematical laws.
+  
+   The final generated item must include the following sections:
+
+
+  * Generate **{{Number_of_questions}}  distinct Case-Based Study (CBS) questions**, each following the rules below:
+    - Each CBS question must include **3 sub-parts (a, b, c)** totaling 4 marks.
+    - **Part (a):** Only 1 skill from DOK 1.
+    - **Part (b):** Only 1 skill from DOK 2.
+    - **Part (c):** Multiple skills from DOK 3.
+    - Ensure each CBS question has a **different real-life scenario** (text, table, graph, or diagram) linked to the topic.
+    - Parts (a), (b), (c) must **progress in complexity** and avoid overlapping skills.
