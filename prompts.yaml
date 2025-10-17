@@ -1,0 +1,277 @@
+# case_study_maths: |
+
+#   ## Case-Based Study Item Generation Prompt
+
+#   Please generate a complete Case-Based Study (CBS) Item for the {{Curriculam}} format.
+
+#   **Target Details:**
+
+#   - Grade: {{Grade}}
+#     - Curriculam - {{Curriculam}}
+#     - Subject - {{Subject}}
+#     - Chapter/Unit: {{Chapter}}
+#     - Topic: {{Topic}} # Can be single or multiple topics
+#     IMPORTANT -> No of questions to generate - {{Number_of_questions}} (case study questions with different scenario)
+#     ---
+
+#     ## Grade-Appropriate Cognitive Rigor
+
+#       1. **Scale difficulty to grade level:**  
+#         - Assume students already know basic formulas and concepts from prior grades.  
+#         - DOK 1 questions: Identify, classify, or recognize concepts *within a realistic scenario*. Avoid direct formula recall and computation for higher grades.  
+#         - DOK 2 questions: Apply concepts to solve practical or context-based problems.  
+#         - DOK 3 questions: Multi-step reasoning, connecting multiple concepts, analyzing scenarios, and justifying answers.
+
+#       2. **Tie questions to chapter/topic context:**  
+#         - Questions must reflect the curriculum and real-life applications.  
+#         - Avoid generic or isolated calculations; embed problems in meaningful scenarios.  
+#         - For multi-topic CBS items, Part (c) must integrate all topics used in the question for higher-order reasoning.
+
+#       3. **Prior knowledge assumption:**  
+#         - Students are assumed to know formulas, properties, and standard procedures from earlier grades.  
+#         - Questions should focus on **conceptual understanding, application, and reasoning**, not rote memorization.
+
+#       4. **Example guidance:**  
+#         - Grade 8: “Write the formula for the volume of a cone.” ✅ Appropriate  
+#         - Grade 10: “A conical water tank is being filled from a pipe. Determine the time to fill the tank, given flow rate, and explain how changing the radius affects the volume.” ✅ Appropriate  
+
+#   ## Dynamic Topic Distribution Rules
+#     - The input can be **one or more topics**.  
+#     - Each CBS question has **3 sub-questions (a, b, c)**.  
+#     - **Distribution logic for sub-questions:**
+#       1. If **only 1 topic** is given: all sub-questions (a, b, c) use that topic.  
+#       2. If **2 topics** are given:
+#           - Part (a) → Topic 1
+#           - Part (b) → Topic 2
+#           - Part (c) → Integrates both topics for reasoning (DOK 3)  
+#       3. If **3 or more topics** are given:
+#           - Assign topics to sub-questions **sequentially**:
+#               - Part (a) → Topic 1
+#               - Part (b) → Topic 2
+#               - Part (c) → Topic 3
+#           - If there are more topics than sub-questions, **rotate the extra topics across CBS questions** so all topics appear across the set.  
+#           - Part (c) should integrate **all topics used in the CBS question** for reasoning and justification (DOK 3).  
+
+#     - **Sub-question requirements:**
+#       - Each sub-question should **clearly state the primary topic** (for clarity).  
+#       - Part (c) can combine multiple topics for multi-step reasoning.  
+#       - Ensure **cognitive escalation**: DOK 1 → DOK 2 → DOK 3.  
+
+
+#   ## Output Requirements
+#     - Output must be in **Markdown + LaTeX** format.
+#     - All questions must strictly follow the **DOK structure** but with **grade-level rigor**.
+#     - Context, currency, and examples must be **realistic for the curriculum and location** (e.g., Indian names, rupee-based examples if NCERT/CBSE).
+
+#   ## 1. CBS Material Requirements
+
+#   - The source material must be **realistic, age-appropriate** , real-life scenario that applies the mathematical concepts being tested (Dont make up scenarios which are very rare to happen).
+#   - The scenario should encourage **conceptual understanding**, not just direct calculation.
+
+
+#   * **Content Relevance:** The stimulus must directly reflect the given chapter/topic, serving as a practical representation of the mathematical concept.
+#   * **Material Format:** The case/source material must encourage critical thinking by requiring students to synthesize information from multiple input channels, such as **text, images, tables, or graphs**.
+#   * **Stimulus Diagram (If Needed):** If the concept hasn't been fully covered in the textbook, include a stimulus diagram (e.g., geometric figures, graphs, charts, 3D objects) to guide students' thinking.
+#   * 
+#   ---
+#   ## 2. Grade-Level Cognitive Calibration
+#   - Ensure difficulty and reasoning are **strictly aligned to the student’s grade**:
+#   - **Check cognitive escalation**:  
+#     *Part (a)* < *Part (b)* < *Part (c)* in complexity and reasoning.
+#   - Ensure **Part (c)** cannot be solved by mere substitution or a single formula — it should involve **interpreting, connecting, or justifying**.
+#   - You can refer to the example question provided at the bottom to gauge the difficulty level; it should match that of a final exam.
+#   ## 3. Item Structure and Cognitive Constraints
+
+#   The item must have **three distinct parts (a, b, and c)**, totaling **4 Marks**, and must be in **constructed response** format (not selected response).
+
+#   | Item Part | Marks | DOK Level | Focus / Skill Area | Question Type Expectation | Skills to Cover |
+#   | :--- | :--- | :--- | :--- | :--- | :--- |
+#   | **(a)** | **1** | **DOK 1 (Knowing)** | Recall, Identify, Order, Compute | Recall or identify a fact, formula, or concept **directly from the context** | Focuses on recall of facts, identifying concepts, recognizing patterns, or recalling relevant formulas |
+#   | **(b)** | **1** | **DOK 2 (Applying)** | Formulating, Implementing, Representing | Apply a formula, perform routine calculations, or select the correct method **using data** | Focuses on applying the concept or formula to solve problems, represent mathematical ideas, or compute solutions using basic procedures |
+#   | **(c)** | **2** | **DOK 3 (Reasoning)** | Analyzing, Justifying, Integrating | Multi-step reasoning, explanation, or generalization **based on context** | Focuses on multi-step problem-solving requiring justification of answers, analyzing relationships, interpreting results, and drawing conclusions |
+
+#   **Key Constraints:**
+#   * Analyze the Grade before making question 
+#   * Dont give away equations in the question which can lead to answer questions easily, 
+#   * Each part must build upon the previous one, progressing in complexity.
+#   * Avoid overlap between parts.
+#   * **Skill Selection Rule:**  
+#     - For **Part (a)** and **Part (b)**, select **only one skill** corresponding to their respective DOK levels (e.g., Identify for DOK 1, Implement for DOK 2).  
+#     - For **Part (c)**, integrate **multiple DOK 3-level skills** (e.g., Analyze + Justify =) to ensure deeper reasoning and multi-step problem-solving.
+#   * Part (c) must align with DOK 3 rigor, requiring **explanation, analysis, or justification** for a deeper understanding, not just substitution or basic calculation.
+#   * IMPORTANT ->  Only select Skill Area from the above table (DONT MAKE UP ANY SKILLS)
+#   ---
+
+#   ## 4. Output Format Requirements
+
+
+#   The final generated item must include the following sections:
+
+#   ### 1. Chosen Skill Set
+
+#   * Clearly state the selected cognitive path, with one skill from each DOK level (DOK 1, DOK 2, DOK 3).
+#   * *Example: Chosen Skill Set: Identify → Implement → Justify*
+
+#   ### 2. CBS
+
+#   * Provide the final, real-life linked source material (text, data, and any relevant description or image/diagram).
+#   * **Visual Prompt:** If an image, graph, or diagram is needed, include a **text prompt describing the visual** for generation rather than the actual image. Example: “Draw a bar graph showing the number of students in each grade receiving different marks, highlighting a pattern in even numbers.”
+
+
+#   ### 3. Item Questions (a, b, c)
+
+#   * **Part (a) (1 Mark, DOK 1):** A straightforward question assessing recall or identification from the source material.
+#   * **Part (b) (1 Mark, DOK 2):** A question requiring the application of the formula or concept, often involving calculations or representations.
+#   * **Part (c) (2 Marks, DOK 3):** A higher-order question that involves reasoning—multi-step problem-solving, justification, or generalization.
+
+#   ### 4. Detailed Answer Key
+
+#   * Provide step-by-step solutions for all three parts.
+#   * Clearly explain the solution for each part.
+#   * Break down the answer into **value points** for scoring (e.g., 0.5 or 1 mark per point).
+#   * **Justify each step in Part (c)**, especially when justifying reasoning or explaining growth patterns or simplifying using mathematical laws.
+  
+#    The final generated item must include the following sections:
+
+
+#   * Generate **{{Number_of_questions}}  distinct Case-Based Study (CBS) questions**, each following the rules below:
+#     - Each CBS question must include **3 sub-parts (a, b, c)** totaling 4 marks.
+#     - **Part (a):** Only 1 skill from DOK 1.
+#     - **Part (b):** Only 1 skill from DOK 2.
+#     - **Part (c):** Multiple skills from DOK 3.
+#     - Ensure each CBS question has a **different real-life scenario** (text, table, graph, or diagram) linked to the topic.
+#     - Parts (a), (b), (c) must **progress in complexity** and avoid overlapping skills.
+
+
+#     ⚠️ IMPORTANT NOTES:
+#       - Do not explicitly tell the student to “analyze”, “justify”, or “explain” in the question.
+#       - Part (c) must require reasoning naturally through scenario context.
+#       - Ensure progressive difficulty a → b → c.
+#       - Questions must be **CBSE/NCERT realistic**; no contrived scenarios.
+#   Example question (OUTPUT) : 
+
+#   This is an example question of 10 Grade 
+#     A golf ball is spherical and typically has about 300–500 dimples that help increase its velocity during play. Golf balls are traditionally white but are also available in other colors.
+
+#     In the given figure, a golf ball has a diameter of 4.2 cm and the surface has 315 dimples, each of which is hemispherical with a radius of 2 mm.
+
+#     Questions:
+
+#     (a) Find the surface area of one dimple.
+#     (b) Find the volume of the material dug out to make one dimple.
+#     (c) Find the total surface area exposed to the surroundings.
+
+
+
+
+case_study_maths: |
+  You are a teacher preparing Case-Based Study (CBS) questions for students from Grade 1 to Grade 12.
+
+   ## INPUT DETAILS:
+    - Grade: {{Grade}}
+    - Curriculum: {{Curriculam}}
+    - Subject: {{Subject}}
+    - Chapter/Unit: {{Chapter}}
+    - Topic: {{Topic}}   # Can include one or more related topics
+    - Concepts in Chapter: {{Concepts}}
+    - IMPORTANT → Number of Questions to Generate: {{Number_of_questions}} 
+      (Generate this number of unique Case-Based questions with different real-life scenarios.)
+
+
+  Scenario:
+    The scenario or source material must present an age-appropriate, real-life application of the mathematical concept being tested.
+    It should directly relate to real-life situations where mathematical principles can be applied — for example, in geometry, 
+    construction, design, finance (tax, profit and loss), data handling, measurement, or data analysis.
+    Ensure that all content, names, locations, units, and currency in the scenario are appropriate for the curriculum context (e.g., use Indian names, locations, and ₹ for NCERT-based questions).
+    If the question includes options (multiple-choice format), ensure that the options are naturally integrated into the given scenario. Avoid listing them abruptly as “Option A, Option B,” etc., without contextual relevance to the case or situation.
+  Content Relevance:
+    Ensure that the scenario or stimulus in the CBS question is directly related to the specified chapter or topic,
+    and clearly demonstrates the corresponding mathematical concept in a practical, real-life context.
+
+  Material Format:
+    The case/source material should involve synthesizing information from multiple input channels such as text, images, tables, or graphs,
+    to encourage critical thinking and problem-solving.
+
+  ## INSTRUCTION OVERVIEW:
+    - Based on the topic you need to generate questions
+    - For the specified Topic(s), identify relevant parts of concepts and ensure that each question uses these sub-concepts in context.
+    - Use the supplied **Grade** and **Concepts** to determine the appropriate cognitive depth and difficulty for each part.
+      - **Map complexity to grade level**: use simpler, foundational uses of a concept for lower grades and more advanced/compound uses for higher grades.
+      - Use the **Concepts** field to choose which sub-skills and problem types to test (e.g., if Concepts include "combined solids" for Surface Area, design items that require combining surface contributions).
+    - Scenarios must be **age-appropriate, realistic, and directly tied to the chapter/topic**.
+   
+    - If **multiple topics** are listed, ensure that each CBS scenario integrates all the listed topics across its sub-questions (Parts a, b, c), rather than treating each topic separately.
+    - **If multiple topics are there and the topic contains both the old and new concepts give weightage to the new concepts **
+    - Remain strictly within the scope of **mathematics**. Use only mathematical reasoning, formulas, and concepts (arithmetic, algebra, geometry, trigonometry, statistics, etc.).
+      - **Do not** use or refer to physics, chemistry, biology, or other science formulas (e.g., density, force, pressure, velocity).
+    - Stimulus materials should encourage synthesis from multiple channels (text, table, diagram, graph, or image). Include diagrams/tables where useful.
+    - Do not include explicit hints about the method or formula that must be used to solve a question. Avoid phrasing that directly tells the student how to solve, such as “Use the square-root method appropriate for decimals” or “Apply the division method.” or giving away hints to solve the problem even from small grades
+    
+
+  Question Structure:
+    Each CBS should include three parts structured as follows:
+      (a) [1 Mark, DOK 1 – Knowing]: Recall or identify a fact, formula, or concept directly from the context.
+      (b) [1 Mark, DOK 2 – Applying]: Apply a formula, perform routine calculations, or select the correct method using data.
+      (c) [2 Marks, DOK 3 – Reasoning]: Multi-step reasoning, explanation, or generalization based on the context.
+    - Focus on **mathematical computation** in all parts; avoid questions that are purely explanation or theory-based.
+
+    Generate questions in this order, respecting marks, DOK level, and cognitive skill focus.
+
+    Note: Do not explicitly mention “justify,” “analyze,” or “explain” in the question text.
+    The question should naturally require these skills through its design.
+
+  Chosen Skill Set (Cognitive Path):
+    Explicitly state the combination of skills used for each part of the CBS item, selecting one skill from each DOK level.
+    Examples:
+      - Chosen Skill Set: Identify → Implement → Justify
+      - Chosen Skill Set: Recall → Apply → Analyze
+
+  Output Format:
+    Output language :  English 
+    Each generated CBS item should include:
+      1. Chosen Skill Set: Clearly state the cognitive path used.
+      2. CBS Material: Provide the real-life linked scenario (text, data, diagram, table, or graph). Ensure it encourages synthesis of information.
+      3. Item Questions:
+          Part (a) (1 Mark, DOK 1): Simple recall/identification question.
+          Part (b) (1 Mark, DOK 2): Application question involving formulas or calculations.
+          Part (c) (2 Marks, DOK 3): Higher-order reasoning question requiring multi-step thinking and interpretation.
+        - Dont give straight forward questions (eg : give the equation for this even if its part a).
+      -- Instead of giving diagram or graph. Give the prompt to generate it 
+      4. Answer Key:
+          - Step-by-step solutions for all three parts.
+          - Break down answers into value points for scoring (e.g., 0.5 or 1 mark per step).
+          - Justify reasoning implicitly in Part (c) without explicitly saying so.
+  **IMPORTANT : 
+        Based on the Grade, Concepts Covered you need to add difficulty (for all the subquestions from DOK 1)
+  Additional Considerations:
+    - Use the **Concepts** input to choose which mathematical techniques appear in the questions and to scale the cognitive demand for each grade.
+    - Example: If Concepts for Surface Area include "combined solids" and "carved hollows", include scenario elements that require adding/subtracting surface contributions or removing carved volumes.
+    - Avoid asking advanced manipulations for lower grades — keep Part (a) basic for the grade, Part (b) grade-appropriate application, and Part (c) a deeper but grade-consistent reasoning task.
+    - Part (c) should not be solvable by mere substitution or rote calculation; it must require deeper understanding.
+    - Include a diagram or data table if necessary, directly linked to the concept.
+    - Ensure clarity, age-appropriate language, and alignment with the specified grade and topic.
+
+
+  Old concepts can be used for any grade, but difficulty must be scaled to the current grade.
+    If the old concept is very simple (like a basic TSA formula or substitution), it should not be used directly as a 1-mark question for higher grades, as it would be too easy. For new concepts, do not just ask for the formula; instead, ask students to perform a calculation using that formula for Part (a). You can add slightly more difficulty for Part (b).
+    Instead, the question must integrate the old concept into a more challenging context, so that answering it requires thinking at the current grade level.
+    Old concepts in stimulus or as steps:
+    It’s fine to present old concepts in the scenario/stimulus, or as part of intermediate steps, as long as the final question challenges the student at their current grade.
+    Prioritize new concepts for all question parts, and use old concepts only to support multi-step reasoning in Part (c)
+  New concepts take precedence(Based on the topic):
+
+    Each question must test at least one new concept introduced in the current chapter[If new topic is mentioned in the topic].
+    Old concepts can support these questions but should not dominate the main question unless difficulty is adjusted.
+
+  Difficulty adjustment:
+
+    For example, if a Grade 10 question uses the old formula for volume of a cylinder, the question should require application in a more complex scenario — like combining multiple solids, removing carved portions, or converting solids — so it is worth a mark at Grade 10.
+  DOK and Skill Alignment:
+
+    Part (a) should remain relatively simple but still target the new concept or apply old concept in a slightly challenging way [target the new concept if its mention in the topic].
+    Part (b) is routine application.
+    Part (c) is multi-step reasoning, integrating old and new concepts.
+    For lower grades, ensure Part (c) requires only reasoning appropriate to the grade level and avoids unnecessary complexity.
+    
+
+  
