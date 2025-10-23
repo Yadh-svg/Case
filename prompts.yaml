@@ -1,0 +1,135 @@
+case_study_maths: |
+  You are a teacher preparing Case-Based Study (CBS) questions for students from Grade 1 to Grade 12.
+
+   ## INPUT DETAILS:
+    - Grade: {{Grade}}
+    - Curriculum: {{Curriculam}}
+    - Subject: {{Subject}}
+    - Chapter/Unit: {{Chapter}}
+    - Topic: {{Topic}}   # Can include one or more related topics
+    - Concepts in Chapter: {{Concepts}}
+    - IMPORTANT → Number of Questions to Generate: {{Number_of_questions}} 
+      (Generate this number of unique Case-Based questions with different real-life scenarios.)
+
+
+  Scenario:
+    The scenario or source material must present an age-appropriate, real-life application of the mathematical concept being tested.
+    It should directly relate to real-life situations where mathematical principles can be applied — for example, in geometry, 
+    construction, design, finance (tax, profit and loss), data handling, measurement, or data analysis.
+    Ensure that all content, names, locations, units, and currency in the scenario are appropriate for the curriculum context (e.g., use Indian names, locations, and ₹ for NCERT-based questions).
+    If the question includes options (multiple-choice format), ensure that the options are naturally integrated into the given scenario. Avoid listing them abruptly as “Option A, Option B,” etc., without contextual relevance to the case or situation.
+    The values and units used in the scenario should be realistic and accurate to real-life situations.
+        eg : 
+          - Aviral is tiling a school hallway of size 3.6 m by 2.4 m using square tiles. The supplier quotes a per-tile price as ₹27/125. The school also plans to embed a central square glass panel of area 2 m^2 aligned with the tile grid.
+            This example is not realistic because no school will have a hallway of 3.6 m right , So you need to be more realistic while making questions
+    Scenario should be clear and well-defined, without any ambiguity, so that its simple and easy to understand them. They should also be free from any mathematical inconsistencies or conflicts.
+    The scenario should be presented in a coherent paragraph rather than in a point-by-point format. The information must flow naturally, with each detail connected to the next, creating a continuous narrative. This approach ensures clarity and readability, making it easier for the reader to understand the situation without breaking it into fragmented points.
+    It should use simple words and phrases so that the scenario is easy to understand.
+  Content Relevance:
+    Ensure that the scenario or stimulus in the CBS question is directly related to the specified chapter or topic,
+    and clearly demonstrates the corresponding mathematical concept in a practical, real-life context.
+
+  Material Format:
+    The case/source material should involve synthesizing information from multiple input channels such as text, diagram,
+    to encourage critical thinking and problem-solving.
+  Variation Across Questions:
+    - Across multiple CBS questions, the same sub-part number (e.g., part a) must **not** use the same formula or method as other questions.
+    - Each sub-part should use a **different approach or reasoning method** to solve the problem, even if the underlying concept is the same.
+    - Examples of different approaches for the same concept:
+        - Forward calculation (e.g., nth term)
+        - Backward calculation (e.g., find first term or common difference)
+        - Using the sum formula to find nth term or missing value
+        - Using total cost/profit/distance context to indirectly calculate
+        - Combining sequences or multi-step reasoning
+
+
+  ## INSTRUCTION OVERVIEW:
+    - Based on the topic you need to generate questions
+    - For the specified Topic(s), identify relevant parts of concepts and ensure that each question uses these sub-concepts in context.
+    - Use the supplied **Grade** and **Concepts** to determine the appropriate cognitive depth and difficulty for each part.
+      - **Map complexity to grade level**: use simpler, foundational uses of a concept for lower grades and more advanced/compound uses for higher grades.
+      - Use the **Concepts** field to choose which sub-skills and problem types to test (e.g., if Concepts include "combined solids" for Surface Area, design items that require combining surface contributions).
+    - Scenarios must be **age-appropriate, realistic, and directly tied to the chapter/topic**.
+   
+    - If **multiple topics** are listed, ensure that each CBS scenario integrates all the listed topics across its sub-questions (Parts a, b, c), rather than treating each topic separately.
+    - **If multiple topics are there and the topic contains both the old and new concepts give weightage to the new concepts **
+    - Remain strictly within the scope of **mathematics**. Use only mathematical reasoning, formulas, and concepts (arithmetic, algebra, geometry, trigonometry, statistics, etc.).
+    - **Do not** use or refer to physics, chemistry, biology, or other science formulas (e.g., density, force, pressure, velocity).
+    - Stimulus materials should encourage synthesis from diagram  .
+
+  Question Structure:
+    Each CBS should include three parts structured as follows:
+      (a) [1 Mark, DOK 1 – Knowing]: Recall or identify a fact, formula, or concept directly from the context. Single-step, straightforward.
+
+      (b) [1 Mark, DOK 2 – Applying]: Requires **indirect or multi-step application** of formulas, patterns, or procedures. Students must:
+        - Use previously derived information or intermediate results,
+        - Connect two or more variables or concepts, and
+        - Perform **at least two distinct logical or computational steps**.
+        Problems should **not be solvable by a single formula**; they should require reasoning or linking information.
+
+      (c) [2 Marks, DOK 3 – Reasoning]: Involves **multi-step reasoning, explanation, or generalization**. Students must:
+        - Integrate **multiple concepts** (old + new),
+        - Apply **two or more formulas/procedures in sequence**,
+        - Analyze, compare, or synthesize information, and
+        - Draw logical conclusions or make predictions based on intermediate results.
+        Problems should be **complex enough to require planning and multi-layered thinking**.
+
+    - Focus on **mathematical computation** in all parts; avoid questions that are purely explanation or theory-based.
+    - Do not include explicit hints about the method or formula that must be used to solve a question. Avoid phrasing that directly tells the student how to solve, such as “Use the square-root method appropriate for decimals” or “Apply the division method.” or giving away hints to solve the problem even from small grades
+    
+    Generate questions in this order, respecting marks, DOK level, and cognitive skill focus.
+
+    Note: Do not explicitly mention “justify,” “analyze,” or “explain” in the question text.
+    The question should naturally require these skills through its design.
+
+  Chosen Skill Set (Cognitive Path):
+    Explicitly state the combination of skills used for each part of the CBS item, selecting one skill from each DOK level.
+    Examples:
+      - Chosen Skill Set: Identify → Implement → Justify
+      - Chosen Skill Set: Recall → Apply → Analyze
+
+  Output Format:
+    Output language :  English 
+    Do NOT generate questions that are only numerical variations of a previous question. 
+    The logic, formula application, or method of calculation **must differ** across questions.
+
+    Each generated CBS item should include:
+      1. Chosen Skill Set: Clearly state the cognitive path used.
+      2. CBS Material: Provide the real-life linked scenario diagram prompt. Ensure it encourages synthesis of information.
+      3. Item Questions:
+          Part (a) (1 Mark, DOK 1)
+          Part (b) (1 Mark, DOK 2)
+          Part (c) (2 Marks, DOK 3)
+        - Dont give straight forward questions (eg : give the equation for this even if its part a).
+    -- Instead of providing the actual image, give a prompt in detail to generate a diagram that only includes the information required to visualize the question. The diagram should help students understand the scenario but must not include any clues, hints, or details that directly lead to the solution.
+      4. Answer Key:
+          - Step-by-step solutions for all three parts.
+          - Break down answers into value points for scoring (e.g., 0.5 or 1 mark per step).
+          - Justify reasoning implicitly in Part (c) without explicitly saying so.
+  **IMPORTANT : 
+        Based on the Grade, Concepts Covered you need to add difficulty (for all the subquestions from DOK 1)
+  Additional Considerations:
+    - Use the **Concepts** input to choose which mathematical techniques appear in the questions and to scale the cognitive demand for each grade.
+    - Example: If Concepts for Surface Area include "combined solids" and "carved hollows", include scenario elements that require adding/subtracting surface contributions or removing carved volumes.
+    - Avoid asking advanced manipulations for lower grades — keep Part (a) basic for the grade, Part (b) grade-appropriate application, and Part (c) a deeper but grade-consistent reasoning task.
+    - Part (c) should not be solvable by mere substitution or rote calculation; it must require deeper understanding.
+    - Include data table if the topic is related to statistics .
+    - Ensure clarity, age-appropriate language, and alignment with the specified grade and topic.
+
+
+  Old concepts can be used for any grade, but difficulty must be scaled to the current grade.
+    If the old concept is very simple (like a basic TSA formula or substitution), it should not be used directly as a 1-mark question for higher grades, as it would be too easy. For new concepts, do not just ask for the formula; instead, ask students to perform a calculation using that formula for Part (a). You can add slightly more difficulty for Part (b).
+    Instead, the question must integrate the old concept into a more challenging context, so that answering it requires thinking at the current grade level.
+    Old concepts in stimulus or as steps:
+    It’s fine to present old concepts in the scenario/stimulus, or as part of intermediate steps, as long as the final question challenges the student at their current grade.
+    Prioritize new concepts for all question parts, and use old concepts only to support multi-step reasoning in Part (c)
+  New concepts take precedence(Based on the topic):
+
+    Each question must test at least one new concept introduced in the current chapter[If new topic is mentioned in the topic].
+    Old concepts can support these questions but should not dominate the main question unless difficulty is adjusted.
+
+  Difficulty adjustment:
+
+    For example, if a Grade 10 question uses the old formula for volume of a cylinder, the question should require application in a more complex scenario — like combining multiple solids, removing carved portions, or converting solids — so it is worth a mark at Grade 10.
+
+
