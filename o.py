@@ -326,5 +326,5 @@ if st.button("🚀 Generate Case Study"):
             st.write(f"**Output Cost:** ${result['cost_output']:.4f}")
             st.write(f"**Total Estimated Cost:** ${result['total_cost']:.4f}")
  
-            with st.expander("🪶 View Raw Prompt Used"):
-                st.code(prompt_filled)
+            # with st.expander("🪶 View Raw Prompt Used"):
+            #     st.code(prompt_filled)
