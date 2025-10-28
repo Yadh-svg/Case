@@ -1,0 +1,88 @@
+# =======================================
+# Python / Streamlit Project .gitignore
+# =======================================
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+
+# --- Virtual Environments ---
+.venv/
+venv/
+env/
+ENV/
+.conda/
+*.env
+*.venv
+
+# --- IDE & Editor Files ---
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# --- OS Files ---
+.DS_Store
+Thumbs.db
+
+# --- Logs & Caches ---
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+*.cache/
+.cache/
+pytest_cache/
+.ipynb_checkpoints/
+
+# --- Dependencies ---
+pip-wheel-metadata/
+__pypackages__/
+
+# --- Build / Distribution ---
+build/
+dist/
+*.egg-info/
+.eggs/
+*.manifest
+*.spec
+
+# --- Streamlit Specific ---
+.streamlit/secrets.toml
+.streamlit/config.toml
+
+# --- Jupyter Notebook Checkpoints ---
+.ipynb_checkpoints/
+
+# --- Local Files ---
+*.bak
+*.tmp
+*.swp
+
+# --- Token / API Key Files ---
+apikey.txt
+secret_key.txt
+credentials.json
+
+# --- Miscellaneous ---
+*.yaml~
+*.yml~
+*.json~
+
+# --- Node / Frontend (if used with Streamlit Components) ---
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# --- OS / Backup Files ---
+*.orig
+*.rej
+*.swo
+*.swp
+*~
