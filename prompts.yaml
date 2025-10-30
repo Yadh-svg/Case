@@ -121,6 +121,28 @@ case_study_maths: |
         - Vary the type of cognitive process used (e.g., recall, analyze, plan, evaluate, predict, optimize, justify).
         - Change the flow of reasoning from one item to another — do not follow a fixed pattern.
         - Keep diversity in context, decision type, and problem-solving approach.
+  
+
+    
+    Variation Across Questions and DOK 3 Reasoning Diversity:
+
+    - Each DOK 3 question must follow a **distinct logical-operation sequence** that fits naturally with its topic.
+      The reasoning flow should depend on the underlying mathematical idea (e.g., shape-based, data-based, or algebraic).
+    
+    - These reasoning can be derived from the topics and the concept of those topics. 
+
+    - Ensure each DOK 3 question in a set varies in:
+        • the order of reasoning steps,
+        • which variable is unknown or derived,
+        • and the type of cognitive demand (comparison, transformation, optimization, inference).
+
+    - In the Answer Key, include one line:
+        “Logical-operation sequence (DOK 3): [a short step-by-step reasoning flow such as Multiply → Divide → Subtract / Find height → Find volume, etc.].  
+        These logical operations must be relevant to both the mentioned topic and the content within that topic.”
+    - Dont repeate the same logical operations For DOK 3 across the CBS question
+
+ 
+      The internal reasoning must differ in both structure and intent.
 
     Generate questions in this order, respecting marks, DOK level, and cognitive skill focus.
 
@@ -145,7 +167,7 @@ case_study_maths: |
           For each subpart configured (a, b, c, ... up to {{Number_of_subparts}}):
             - {{SUBPARTS_SECTION}}
             - Ensure each subpart tests a different cognitive step or mathematical reasoning path.
-
+          
 
         - Dont give straight forward questions (eg : give the equation for this even if its part a).
     -- Instead of providing the actual image, give a prompt in detail to generate a diagram that only includes the information required to visualize the question. The diagram should help students understand the scenario but must not include any clues, hints, or details that directly lead to the solution.
@@ -153,6 +175,8 @@ case_study_maths: |
           - Step-by-step solutions for all three parts.
           - Break down answers into value points for scoring (e.g., 0.5 or 1 mark per step).
           - Justify reasoning implicitly in Part (c) without explicitly saying so.
+
+          Include the logical-operation sequence involved in the question in a new line (only for DOK 3 Questions)
   **IMPORTANT : 
         Based on the Grade, Concepts Covered you need to add difficulty (for all the subquestions from DOK 1)
   Additional Considerations:
