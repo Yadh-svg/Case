@@ -36,17 +36,158 @@ case_study_maths: |
     to encourage critical thinking and problem-solving.
   Variation Across Questions:
     - Across multiple CBS questions, the same sub-part number (e.g., part a) must **not** use the same formula or method as other questions.
-    - Each sub-part should use a **different approach or reasoning method** to solve the problem, even if the underlying concept is the same.
-    - Ensure that not only the scenarios, but also the logical reasoning structure differs across CBS questions.
-    - Each CBS question should test the concept through a different reasoning pathway:
-        - For example, one question may involve forward computation (find result),
-          another reverse computation (find input or missing variable),
-          another comparison or efficiency reasoning (which is larger, smaller, or better).
+
+    - Each **sub-part within and across questions** (e.g., Part 3 of Q1 and Part 3 of Q2) should use a **different reasoning path or problem-solving approach**, even if they belong to the same topic.  
+    - Avoid repeating the **same conceptual setup or question type** — explore **varied logical routes** to test understanding in multiple ways.  
+    - Remember: even if the underlying formula or equation is the same, there can be **many distinct ways to frame or reach the problem** (e.g., reverse calculation, comparison, reasoning-based, estimation, or application in a new context).
+
     - Avoid repeating the same problem flow .
-    - Even when the same concept is used, the reasoning structure and mathematical steps should differ substantially.
 
 
+    - Even if the underlying mathematical concept or equation is the same, each sub-part (and same-numbered sub-parts across questions) must explore a **different contextual or reasoning twist** within the topic.
+    - Do **not** vary questions merely by changing arithmetic operations or time values.
+    - Instead, vary the **thinking approach, context, or scenario framing** — e.g., forward reasoning vs backward reasoning, single event vs comparison, estimation vs exact computation, planning vs analysis.
+    - Ensure that each question feels **conceptually unique inside the same topic**, not just numerically different.
+    - Look the correct example how its changing the questions even its for a single topic (Do those type of twisiting for the question)
 
+    Example 
+        ❌ INCORRECT DESIGN EXAMPLES (Single Topic: Finding nth term)
+    ------------------------------------------------------------
+    # Chapter: Arithmetic Progression (A.P.)
+    # Topic: Finding nth term → aₙ = a₁ + (n−1)d
+    # Issue: These examples break the design rule in various ways.
+
+    ---
+
+    ❌ CBS Material 1 — (Concept Drift)
+      The sum of the first 20 terms of an A.P. is 610, and the first term is 5.
+      Find the common difference.
+
+      🔴 Problem:
+        - Uses formula for sum of A.P. (Sₙ = n/2 [2a₁ + (n−1)d])
+        - NOT the nth-term concept.
+        - Mixes topics, breaking the single-concept rule.
+
+    ---
+
+    ❌ CBS Material 2 — (Repetitive Question Form)
+      Find the 10th term of an A.P. where a₁ = 3 and d = 5.
+      Find the 15th term of another A.P. where a₁ = 3 and d = 5.
+      Find the 20th term of another A.P. where a₁ = 3 and d = 5.
+
+      🔴 Problem:
+        - No variation in reasoning, only number changes.
+        - Same forward substitution repeated.
+        - Zero conceptual or scenario variation.
+
+      ---
+
+      ❌ CBS Material 3 — (Same Scenario Logic Reuse)
+        1️⃣ A car’s speed increases by 5 km/h every hour. If it starts at 30 km/h, find its speed after 8 hours.
+        2️⃣ A bus’s speed increases by 5 km/h every hour. If it starts at 40 km/h, find its speed after 9 hours.
+
+        🔴 Problem:
+          - Both are the same reasoning pattern with only different numbers.
+          - Scenario looks “different,” but thinking path identical.
+          - Violates “distinct reasoning flow” rule.
+
+      ---
+
+      ❌ CBS Material 4 — (Multiple Concepts Mixed)
+        The 5th term of an A.P. is 25 and its sum up to the 10th term is 150.
+        Find the first term.
+
+        🔴 Problem:
+          - Introduces the “sum of terms” formula.
+          - Breaks the rule of staying inside *only* nth-term concept.
+
+      ---
+
+      ❌ CBS Material 5 — (Unrealistic or Forced Scenario)
+        An alien colony increases its laser beams by 2 each second starting from 3 beams. 
+        Find how many beams in the 50th second.
+
+        🔴 Problem:
+          - Unrealistic, lacks relatable CBS context.
+          - Superficial story without cognitive reasoning twist.
+          - Adds fiction instead of real-life logic.
+
+      ---
+
+      ❌ CBS Material 6 — (Arithmetic Operation Substitution Instead of Logical Variation)
+        1️⃣ The 4th term of an A.P. is 20 and the 8th term is 36. Find d.
+        2️⃣ The 4th term of an A.P. is 20 and the 8th term is 36. Find a₁.
+        3️⃣ The 4th term of an A.P. is 20 and the 8th term is 36. Find the 12th term.
+
+        🔴 Problem:
+          - All three are *mechanically* different questions, but cognitively identical.
+          - Only changes the arithmetic target — not the reasoning method.
+
+      ---
+
+      ❌ CBS Material 7 — (Non-contextual Abstract Question)
+        If the nth term of an A.P. is 5n + 2, find its first term and common difference.
+
+        🔴 Problem:
+          - Purely algebraic, no scenario or application.
+          - No real-world interpretation, fails CBS format.
+
+      ---
+
+      ✅ CORRECT DESIGN EXAMPLES (Single Topic: Finding nth term)
+      -----------------------------------------------------------
+      # Topic: aₙ = a₁ + (n−1)d
+      # Goal: Same deep reasoning paths as abstract math, but inside real-world or story contexts.
+      # Constraint: Do NOT add new formulas or A.P. concepts — only nth term.
+
+      CBS Material 1 — (Project Funding Growth – Hidden Parameter Inference)
+        A city council grants ₹15,000 for a green project in its 3rd year 
+        and ₹27,000 in its 7th year, following a fixed yearly increase.
+        Predict the grant amount for the 15th year.
+
+        ➤ Deep logic: Both a₁ and d must be found indirectly from two term values.
+        ➤ Formula used twice within context.
+
+      ---
+
+      CBS Material 2 — (Theatre Seating Expansion – Relational Reasoning)
+        A new theatre adds seats row by row. 
+        The 12th row has 96 seats, and the 20th row has 132 seats.
+        How many seats will there be in the 30th row?
+
+        ➤ Reasoning: Relation between distant terms (a₂₀ − a₁₂).
+        ➤ No direct values of a₁ or d given; must infer step-wise.
+
+      ---
+
+      CBS Material 3 — (Book Page Numbering – Hidden Position Inference)
+        In a printing error, the 8th page shows number 92, 
+        and another page shows number 128. 
+        If pages follow an arithmetic pattern, 
+        find which page is numbered 128, and what number will appear on the next page.
+
+        ➤ Deep logic: Must identify n from aₙ = a₁ + (n−1)d, then reuse to find aₙ₊₁.
+        ➤ Multi-step but still one formula.
+
+      ---
+
+      CBS Material 4 — (Temperature Observation – Relational Difference)
+        A meteorologist notes that the temperature on the 10th day 
+        is 6°C higher than on the 4th day. 
+        If the first day recorded 18°C, predict the temperature on the 25th day.
+
+        ➤ Reasoning: Translate a₁₀ − a₄ = 6 into difference of indices.
+        ➤ Conceptual link between relational change and nth-term formula.
+
+      ---
+      ✅ Strengths:
+        - Every problem is scenario-based, not numeric-only.
+        - Only the topic mentioned is used.
+        - Depth comes from how the data are hidden, compared, or symbolically expressed.
+        - Reflects DOK-3 reasoning even within one narrow topic.
+
+    - * These strengths should be maintained across **all chapters and topics**, even if **only a single topic** is specified.
+    - **Never ask Yes/No feasibility** (e.g., “Can he reach on time?”). Always ask for a **computed value** (time, duration, difference).
   ## INSTRUCTION OVERVIEW:
     - Based on the topic you need to generate questions
     - For the specified Topic(s), identify relevant parts of concepts and ensure that each question uses these sub-concepts in context.
@@ -121,9 +262,7 @@ case_study_maths: |
         - Vary the type of cognitive process used (e.g., recall, analyze, plan, evaluate, predict, optimize, justify).
         - Change the flow of reasoning from one item to another — do not follow a fixed pattern.
         - Keep diversity in context, decision type, and problem-solving approach.
-  
-
-    
+     
     Variation Across Questions and DOK 3 Reasoning Diversity:
 
     - Each DOK 3 question must follow a **distinct logical-operation sequence** that fits naturally with its topic.
@@ -182,7 +321,6 @@ case_study_maths: |
   Additional Considerations:
     - Use the **Concepts** input to choose which mathematical techniques appear in the questions and to scale the cognitive demand for each grade.
     - Example: If Concepts for Surface Area include "combined solids" and "carved hollows", include scenario elements that require adding/subtracting surface contributions or removing carved volumes.
-    - Avoid asking advanced manipulations for lower grades — keep Part (a) basic for the grade, Part (b) grade-appropriate application, and Part (c) a deeper but grade-consistent reasoning task.
     - Part (c) should not be solvable by mere substitution or rote calculation; it must require deeper understanding.
     - Include data table if the topic is related to statistics .
     - Ensure clarity, age-appropriate language, and alignment with the specified grade and topic.
