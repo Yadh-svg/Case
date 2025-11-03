@@ -197,8 +197,7 @@ case_study_maths: |
     Each CBS should include {{Number_of_subparts}} parts, each corresponding to one sub-question.
     {{SUBPARTS_SECTION}}
       - Ensure the difficulty, DOK level, and cognitive demand match the part’s configuration.
-      - Maintain logical progression across subparts — the complexity must increase with each subsequent subpart.
-
+      - Based on the DOK level and the difficulty you need to generate the question accordingly.
  
 
       DOK 1 : Recall or identify a fact, formula, or concept directly from the context. Single-step, straightforward.
