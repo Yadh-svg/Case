@@ -277,13 +277,19 @@ for key, value in input_data.items():
 prompt_filled = prompt_filled.replace("{{SUBPARTS_SECTION}}", subparts_block)
 
 # ✅ Step 3: Add PDF context note after "## INPUT DETAILS:" section
-if input_mode == "PDF":
-    insertion_note = "\nFor the context of the chapter, you can refer to the uploaded PDF (keep this in mind), and generate questions based on the topic given.\n"
-    if "## INPUT DETAILS:" in prompt_filled:
-        prompt_filled = prompt_filled.replace("## INPUT DETAILS:", "## INPUT DETAILS:" + insertion_note)
+if input_mode == "Upload PDF":
+    insertion_note = "\nFor the context of the chapter, you can refer to the uploaded PDF (keep this in mind), and generate case base study (More details of how to make cbs questions are mentioned below) questions based on the topic given.Make scenario's instead of just giving figure\n"
+    import re
+
+    pattern = r"^\s*##\s*INPUT\s*DETAILS\s*:\s*$"
+    match = re.search(pattern, prompt_filled, re.IGNORECASE | re.MULTILINE)
+
+    if match:
+        start = match.end()
+        prompt_filled = prompt_filled[:start] + "\n" + insertion_note + prompt_filled[start:]
     else:
-        # fallback if the header isn't found for any reason
-        prompt_filled += insertion_note
+        prompt_filled += "\n" + insertion_note
+
 
 # ---------------------------
 # Generate Button
@@ -399,9 +405,9 @@ if st.button("🚀 Generate Case Study"):
     """)
 
     st.divider()
-    # st.subheader("🧩 Raw Prompt Sent to Model")
-    # st.code(json.dumps(payload, indent=2), language="json")
+    st.subheader("🧩 Raw Prompt Sent to Model")
+    st.code(json.dumps(payload, indent=2), language="json")
 
-    # st.divider()
-    # st.subheader("🧾 Raw API Response")
-    # st.code(json.dumps(data, indent=2), language="json")
+    st.divider()
+    st.subheader("🧾 Raw API Response")
+    st.code(json.dumps(data, indent=2), language="json")
