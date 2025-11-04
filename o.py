@@ -278,7 +278,7 @@ prompt_filled = prompt_filled.replace("{{SUBPARTS_SECTION}}", subparts_block)
 
 # ✅ Step 3: Add PDF context note after "## INPUT DETAILS:" section
 if input_mode == "PDF":
-    insertion_note = "\nFor the context of the chapter, you can refer to the uploaded PDF (keep this in mind).\n"
+    insertion_note = "\nFor the context of the chapter, you can refer to the uploaded PDF (keep this in mind), and generate questions based on the topic given.\n"
     if "## INPUT DETAILS:" in prompt_filled:
         prompt_filled = prompt_filled.replace("## INPUT DETAILS:", "## INPUT DETAILS:" + insertion_note)
     else:
