@@ -404,10 +404,10 @@ if st.button("🚀 Generate Case Study"):
     | **Total** | {total_tokens:,} | — | **${total_cost:.6f}** |
     """)
 
-    st.divider()
-    st.subheader("🧩 Raw Prompt Sent to Model")
-    st.code(json.dumps(payload, indent=2), language="json")
+    # st.divider()
+    # st.subheader("🧩 Raw Prompt Sent to Model")
+    # st.code(json.dumps(payload, indent=2), language="json")
 
-    st.divider()
-    st.subheader("🧾 Raw API Response")
-    st.code(json.dumps(data, indent=2), language="json")
+    # st.divider()
+    # st.subheader("🧾 Raw API Response")
+    # st.code(json.dumps(data, indent=2), language="json")
