@@ -345,6 +345,11 @@ else:
     old_concepts = st.text_area("📚 Old Concepts (Previously Learned)", 
         "Concepts from prior grades that connect to this topic...")
 
+    solution_guidelines = st.text_area(
+    "🧩 Solution Guidelines (What to do / What not to do while generating solutions)",
+    
+    height=180
+    )
 # ---------------------------
 # Build Subpart Block
 # ---------------------------
@@ -378,6 +383,12 @@ if input_mode == "Upload PDF":
         "\nFor the context of the chapter, refer to the uploaded PDF "
         "and generate scenario-based case study questions. Avoid just mathematics; use real-life situations. \n"
     )
+    if solution_guidelines and solution_guidelines.strip():
+        insertion_note += (
+            f"\n**Solution Generation Guidelines:**\n"
+            f"{solution_guidelines.strip()}\n"
+            f"Ensure all generated solutions strictly follow these rules.\n"
+        )
 
     if old_concepts and old_concepts.strip():
         # logger.info(f"📚 Adding old concepts information: {old_concepts[:100]}...")
@@ -425,7 +436,7 @@ if st.button("🚀 Generate Case Study"):
 
         payload = {
             "model": "gpt-5",
-            "reasoning": {"effort": "high"},
+            "reasoning": {"effort": "low"},
             "input": [
                 {
                     "role": "user",
@@ -447,7 +458,7 @@ if st.button("🚀 Generate Case Study"):
     else:
         payload = {
             "model": "gpt-5",
-            "reasoning": {"effort": "high"},
+            "reasoning": {"effort": "low"},
             "input": [
                 {
                     "role": "user",

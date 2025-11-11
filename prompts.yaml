@@ -379,6 +379,13 @@ case_study_maths: |
           • Scenario = Real-life setup and qualitative context  
           • Diagram = Visual/numerical representation of the setup  
           • Sub-questions = Logical and mathematical reasoning based on both
+      - More about diagram prompt: |
+          - Create a realistic, data-based diagram  that directly represents the situation described in the scenario.  
+          - It should visually match the setup (e.g., areas, objects, sections, or people mentioned) using relevant numerical values.  
+          - Include only essential measurable details — such as quantities, time, cost, length, or rates — with proper units.  
+          - Keep it simple, consistent, and self-contained.  
+          - The diagram must reflect the same context as the scenario but present it through clear numbers or labeled visuals.
+          - Dont give point by point, It should be continuous which properly define everything
 
     5. Scenario Flow and Realism:
       - The scenario must be realistic, logically consistent, and contextually appropriate for Indian settings (names, ₹, metric units, etc.).
