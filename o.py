@@ -436,7 +436,7 @@ if st.button("🚀 Generate Case Study"):
 
         payload = {
             "model": "gpt-5",
-            "reasoning": {"effort": "low"},
+            "reasoning": {"effort": "high"},
             "input": [
                 {
                     "role": "user",
@@ -458,7 +458,7 @@ if st.button("🚀 Generate Case Study"):
     else:
         payload = {
             "model": "gpt-5",
-            "reasoning": {"effort": "low"},
+            "reasoning": {"effort": "high"},
             "input": [
                 {
                     "role": "user",

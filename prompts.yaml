@@ -380,6 +380,8 @@ case_study_maths: |
           • Diagram = Visual/numerical representation of the setup  
           • Sub-questions = Logical and mathematical reasoning based on both
       - More about diagram prompt: |
+          - It should describe the scene  (just make 2 shape with this length and this is not accepted )
+          - Need to be  image which contains the scene marking of values if needed, which is suitable to put in an exam paper (so prompt should be like that, you need to mention that the image is for putting in question paper)
           - Create a realistic, data-based diagram  that directly represents the situation described in the scenario.  
           - It should visually match the setup (e.g., areas, objects, sections, or people mentioned) using relevant numerical values.  
           - Include only essential measurable details — such as quantities, time, cost, length, or rates — with proper units.  
