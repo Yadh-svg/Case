@@ -1,350 +1,5 @@
-# case_study_maths: |
-#   You are a teacher preparing Case-Based Study (CBS) questions for students from Grade 1 to Grade 12.
-
-#    ## INPUT DETAILS:
-#     - Grade: {{Grade}}
-#     - Curriculum: {{Curriculam}}
-#     - Subject: {{Subject}}
-#     - Chapter/Unit: {{Chapter}}
-#     - Topic: {{Topic}}   # Can include one or more related topics
-#     - Concepts in Chapter: {{Concepts}}
-#     - IMPORTANT → Number of Questions to Generate: {{Number_of_questions}} (Don't generate more than or less than this number of questions)
-#       (Generate this number of unique Case-Based questions with different real-life scenarios.)
-
-#    Scenario:
-#     The scenario or source material must present an age-appropriate, real-life application of the mathematical concept being tested.
-#     It should directly relate to real-life situations where mathematical principles can be applied — for example, in geometry, 
-#     construction, design, finance (tax, profit and loss), data handling, measurement, or data analysis.
-#     Ensure that all content, names, locations, units, and currency in the scenario are appropriate for the curriculum context (e.g., use Indian names, locations, and ₹ for NCERT-based questions).
-#     Ensure each question uses a completely different real-life setting: school, home, market, sports, games, travel, cooking, construction, etc. Do not repeat similar objects, items, or settings across questions
-#     If the question includes options (multiple-choice format), ensure that the options are naturally integrated into the given scenario. Avoid listing them abruptly as “Option A, Option B,” etc., without contextual relevance to the case or situation.
-#     The values and units used in the scenario should be realistic, accurate, and measurable in real-life situations. Only use proper numbers that lead to clean, finite, and practical results (no irrational or overly complex values) for scenarios only .
-#         eg : 
-#           - Aviral is tiling a school hallway of size 3.6 m by 2.4 m using square tiles. The supplier quotes a per-tile price as ₹27/125. The school also plans to embed a central square glass panel of area 2 m^2 aligned with the tile grid.
-#             This example is not realistic because no school will have a hallway of 3.6 m right , So you need to be more realistic while making questions
-#     Scenario should be clear and well-defined, without any ambiguity, so that its simple and easy to understand them. They should also be free from any mathematical inconsistencies or conflicts.
-#     The scenario should be presented in a coherent paragraph rather than in a point-by-point format. The information must flow naturally, with each detail connected to the next, creating a continuous narrative. This approach ensures clarity and readability, making it easier for the reader to understand the situation without breaking it into fragmented points.
-#     It should use simple words and phrases so that the scenario is easy to understand.
-#     The scenario must naturally arise from the given values, rather than creating a story first and then fitting numbers into it.
-
-#   Content Relevance:
-#     Ensure that the scenario or stimulus in the CBS question is directly related to the specified chapter or topic,
-#     and clearly demonstrates the corresponding mathematical concept in a practical, real-life context.
-
-#   Material Format:
-#     The case/source material should involve synthesizing information from multiple input channels such as text, diagram,
-#     to encourage critical thinking and problem-solving.
-#   Variation Across Questions:
-#     - Across multiple CBS questions, the same sub-part number (e.g., part a) must **not** use the same formula or method as other questions.
-
-#     - Each **sub-part within and across questions** (e.g., Part 3 of Q1 and Part 3 of Q2) should use a **different reasoning path or problem-solving approach**, even if they belong to the same topic.  
-#     - Avoid repeating the **same conceptual setup or question type** — explore **varied logical routes** to test understanding in multiple ways.  
-#     - Remember: even if the underlying formula or equation is the same, there can be **many distinct ways to frame or reach the problem** (e.g., reverse calculation, comparison, reasoning-based, estimation, or application in a new context).
-
-#     - Avoid repeating the same problem flow .
-
-
-#     - Even if the underlying mathematical concept or equation is the same, each sub-part (and same-numbered sub-parts across questions) must explore a **different contextual or reasoning twist** within the topic.
-#     - Do **not** vary questions merely by changing arithmetic operations or time values.
-#     - Instead, vary the **thinking approach, context, or scenario framing** — e.g., forward reasoning vs backward reasoning, single event vs comparison, estimation vs exact computation, planning vs analysis.
-#     - Ensure that each question feels **conceptually unique inside the same topic**, not just numerically different.
-#     - Look the correct example how its changing the questions even its for a single topic (Do those type of twisiting for the question)
-
-#     Example 
-#         ❌ INCORRECT DESIGN EXAMPLES (Single Topic: Finding nth term)
-#     ------------------------------------------------------------
-#     # Chapter: Arithmetic Progression (A.P.)
-#     # Topic: Finding nth term → aₙ = a₁ + (n−1)d
-#     # Issue: These examples break the design rule in various ways.
-
-#     ---
-
-#     ❌ CBS Material 1 — (Concept Drift)
-#       The sum of the first 20 terms of an A.P. is 610, and the first term is 5.
-#       Find the common difference.
-
-#       🔴 Problem:
-#         - Uses formula for sum of A.P. (Sₙ = n/2 [2a₁ + (n−1)d])
-#         - NOT the nth-term concept.
-#         - Mixes topics, breaking the single-concept rule.
-
-#     ---
-
-#     ❌ CBS Material 2 — (Repetitive Question Form)
-#       Find the 10th term of an A.P. where a₁ = 3 and d = 5.
-#       Find the 15th term of another A.P. where a₁ = 3 and d = 5.
-#       Find the 20th term of another A.P. where a₁ = 3 and d = 5.
-
-#       🔴 Problem:
-#         - No variation in reasoning, only number changes.
-#         - Same forward substitution repeated.
-#         - Zero conceptual or scenario variation.
-
-#       ---
-
-#       ❌ CBS Material 3 — (Same Scenario Logic Reuse)
-#         1️⃣ A car’s speed increases by 5 km/h every hour. If it starts at 30 km/h, find its speed after 8 hours.
-#         2️⃣ A bus’s speed increases by 5 km/h every hour. If it starts at 40 km/h, find its speed after 9 hours.
-
-#         🔴 Problem:
-#           - Both are the same reasoning pattern with only different numbers.
-#           - Scenario looks “different,” but thinking path identical.
-#           - Violates “distinct reasoning flow” rule.
-
-#       ---
-
-#       ❌ CBS Material 4 — (Multiple Concepts Mixed)
-#         The 5th term of an A.P. is 25 and its sum up to the 10th term is 150.
-#         Find the first term.
-
-#         🔴 Problem:
-#           - Introduces the “sum of terms” formula.
-#           - Breaks the rule of staying inside *only* nth-term concept.
-
-#       ---
-
-#       ❌ CBS Material 5 — (Unrealistic or Forced Scenario)
-#         An alien colony increases its laser beams by 2 each second starting from 3 beams. 
-#         Find how many beams in the 50th second.
-
-#         🔴 Problem:
-#           - Unrealistic, lacks relatable CBS context.
-#           - Superficial story without cognitive reasoning twist.
-#           - Adds fiction instead of real-life logic.
-
-#       ---
-
-#       ❌ CBS Material 6 — (Arithmetic Operation Substitution Instead of Logical Variation)
-#         1️⃣ The 4th term of an A.P. is 20 and the 8th term is 36. Find d.
-#         2️⃣ The 4th term of an A.P. is 20 and the 8th term is 36. Find a₁.
-#         3️⃣ The 4th term of an A.P. is 20 and the 8th term is 36. Find the 12th term.
-
-#         🔴 Problem:
-#           - All three are *mechanically* different questions, but cognitively identical.
-#           - Only changes the arithmetic target — not the reasoning method.
-
-#       ---
-
-#       ❌ CBS Material 7 — (Non-contextual Abstract Question)
-#         If the nth term of an A.P. is 5n + 2, find its first term and common difference.
-
-#         🔴 Problem:
-#           - Purely algebraic, no scenario or application.
-#           - No real-world interpretation, fails CBS format.
-
-#       ---
-
-#       ✅ CORRECT DESIGN EXAMPLES (Single Topic: Finding nth term)
-#       -----------------------------------------------------------
-#       # Topic: aₙ = a₁ + (n−1)d
-#       # Goal: Same deep reasoning paths as abstract math, but inside real-world or story contexts.
-#       # Constraint: Do NOT add new formulas or A.P. concepts — only nth term.
-
-#       CBS Material 1 — (Project Funding Growth – Hidden Parameter Inference)
-#         A city council grants ₹15,000 for a green project in its 3rd year 
-#         and ₹27,000 in its 7th year, following a fixed yearly increase.
-#         Predict the grant amount for the 15th year.
-
-#         ➤ Deep logic: Both a₁ and d must be found indirectly from two term values.
-#         ➤ Formula used twice within context.
-
-#       ---
-
-#       CBS Material 2 — (Theatre Seating Expansion – Relational Reasoning)
-#         A new theatre adds seats row by row. 
-#         The 12th row has 96 seats, and the 20th row has 132 seats.
-#         How many seats will there be in the 30th row?
-
-#         ➤ Reasoning: Relation between distant terms (a₂₀ − a₁₂).
-#         ➤ No direct values of a₁ or d given; must infer step-wise.
-
-#       ---
-
-#       CBS Material 3 — (Book Page Numbering – Hidden Position Inference)
-#         In a printing error, the 8th page shows number 92, 
-#         and another page shows number 128. 
-#         If pages follow an arithmetic pattern, 
-#         find which page is numbered 128, and what number will appear on the next page.
-
-#         ➤ Deep logic: Must identify n from aₙ = a₁ + (n−1)d, then reuse to find aₙ₊₁.
-#         ➤ Multi-step but still one formula.
-
-#       ---
-
-#       CBS Material 4 — (Temperature Observation – Relational Difference)
-#         A meteorologist notes that the temperature on the 10th day 
-#         is 6°C higher than on the 4th day. 
-#         If the first day recorded 18°C, predict the temperature on the 25th day.
-
-#         ➤ Reasoning: Translate a₁₀ − a₄ = 6 into difference of indices.
-#         ➤ Conceptual link between relational change and nth-term formula.
-
-#       ---
-#       ✅ Strengths:
-#         - Every problem is scenario-based, not numeric-only.
-#         - Only the topic mentioned is used.
-#         - Depth comes from how the data are hidden, compared, or symbolically expressed.
-#         - Reflects DOK-3 reasoning even within one narrow topic.
-
-#     - * These strengths should be maintained across **all chapters and topics**, even if **only a single topic** is specified.
-#     - **Never ask Yes/No feasibility** (e.g., “Can he reach on time?”). Always ask for a **computed value** (time, duration, difference).
-#   ## INSTRUCTION OVERVIEW:
-#     - IMPORTANT → Number of Questions to Generate: {{Number_of_questions}} (Don't generate more than or less than this number of questions)
-#     - Based on the topic you need to generate questions
-#     - For the specified Topic(s), identify relevant parts of concepts and ensure that each question uses these sub-concepts in context.
-#     - Use the supplied **Grade** and **Concepts** to determine the appropriate cognitive depth and difficulty for each part.
-#     - Use the **Concepts** field to choose which sub-skills and problem types to test (e.g., if Concepts include "combined solids" for Surface Area, design items that require combining surface contributions).
-#     - Scenarios must be **age-appropriate, realistic, and directly tied to the chapter/topic**.
-#     - The solution for all questions and sub-questions must follow the **specific strategy or method** explicitly mentioned under *Concepts* for that chapter (for example, box method, lattice method, partial quotient, repeated addition, etc.).  
-#       - If the chapter introduces or emphasizes a particular technique (e.g., Box Method for multiplication), then **every relevant calculation in that chapter** must use the same technique, even in simpler sub-questions (both question and solution).  
-#       - This ensures consistency with what the student is currently being taught at that grade level.  
-#       - Only if no specific method is mentioned in the concepts should the general grade-appropriate method be used.
-
-        
-#     - If **multiple topics** are listed, ensure that each CBS scenario integrates all the listed topics across its sub-questions (Parts a, b, c), rather than treating each topic separately.
-#     - **If multiple topics are there and the topic contains both the old and new concepts give weightage to the new concepts **
-#     - Remain strictly within the scope of **mathematics**. Use only mathematical reasoning, formulas, and concepts (arithmetic, algebra, geometry, trigonometry, statistics, etc.).
-#     - **Do not** use or refer to physics, chemistry, biology, or other science formulas (e.g., density, force, pressure, velocity).
-#     - Stimulus materials should encourage synthesis from diagram  .
-
-#   Question Structure:
-
- 
-#     Each CBS should include {{Number_of_subparts}} parts, each corresponding to one sub-question.
-#     {{SUBPARTS_SECTION}}
-#       - Ensure the difficulty, DOK level, and cognitive demand match the part’s configuration.
-#       - Based on the DOK level and the difficulty you need to generate the question accordingly.
- 
-
-#       DOK 1 : Recall or identify a fact, formula, or concept directly from the context. Single-step, straightforward.
-
-#       DOK 2 : Requires **indirect or multi-step application** of formulas, patterns, or procedures. Students must:
-#         - Use previously derived information or intermediate results,
-#         - Connect two or more variables or concepts, and
-#         - Perform **at least two distinct logical or computational steps**.
-#         Problems should **not be solvable by a single formula**; they should require reasoning or linking information.
-
-#       DOK 3 : Involves advanced multi-step reasoning, synthesis, or generalization.
-    
-#       - These questions must **require deep conceptual understanding**, not just formula substitution.
-#       - Students must **analyze, plan, and integrate** multiple mathematical ideas to arrive at a solution.
-#       - Must involve **at least two or more linked mathematical concepts or reasoning types**  
-#         (for example: geometry + algebra, ratio + percentage, statistics + probability, etc.).
-#       - Should require **strategic planning or decision-making**, where the student must determine
-#         *which approach or concept to apply* rather than being guided directly.
-#       - May involve **realistic constraints or secondary reasoning layers**, such as:
-#         - optimization (minimum/maximum, efficiency, best choice),
-#         - comparative reasoning (which design, method, or value is better),
-#         - logical inference (interpreting results, scaling, proportional thinking),
-#         - or compound conditions (e.g., “if this increases by 20%, how does that affect…”).
-    
-#       - The question must stay **realistic, mathematically sound, and age-appropriate**, but its **reasoning depth**
-#         should be **challenging even for advanced or Olympiad-level thinkers** of that grade.
-    
-#       - Such items should not be solvable by a single formula or standard substitution.
-#         They should require **layered reasoning, intermediate results, and cross-concept connections**.
-    
-#       - The solution path should demonstrate **original thought**, clear reasoning, and ability to connect prior learning
-#         — not rote memorization or procedural recall.
- 
-#     ⚠️ Difficulty Directive:
-#       - DOK 3 items represent the **highest cognitive challenge** for the given grade level.
-#       - They should test whether a student has **mastery-level comprehension and reasoning ability**.
-#       - Only a **well-prepared, advanced student** (e.g., an Olympiad or NTSE-level problem solver)
-#         should be able to complete all reasoning steps accurately within time.
-
-
-#     - Focus on **mathematical computation** in all parts; avoid questions that are purely explanation or theory-based.
-#     - Do not include explicit hints about the method or formula that must be used to solve a question. Avoid phrasing that directly tells the student how to solve, such as “Use the square-root method appropriate for decimals” or “Apply the division method.” or giving away hints to solve the problem even from small grades
-#     - Avoid repeating the same arithmetic pattern (e.g., “multiply → divide → compare”) in every case study . 
-#     - Ensure each case study or item follows a distinct reasoning path. 
-#     - Avoid repeating the same structure or sequence of thinking across items.
-#         - Vary the type of cognitive process used (e.g., recall, analyze, plan, evaluate, predict, optimize, justify).
-#         - Change the flow of reasoning from one item to another — do not follow a fixed pattern.
-#         - Keep diversity in context, decision type, and problem-solving approach.
-     
-#     Variation Across Questions and DOK 3 Reasoning Diversity:
-
-#     - Each DOK 3 question must follow a **distinct logical-operation sequence** that fits naturally with its topic.
-#       The reasoning flow should depend on the underlying mathematical idea (e.g., shape-based, data-based, or algebraic).
-    
-#     - These reasoning can be derived from the topics and the concept of those topics. 
-
-#     - Ensure each DOK 3 question in a set varies in:
-#         • the order of reasoning steps,
-#         • which variable is unknown or derived,
-#         • and the type of cognitive demand (comparison, transformation, optimization, inference).
-
-#     - In the Answer Key, include one line:
-#         “Logical-operation sequence (DOK 3): [a short step-by-step reasoning flow such as Multiply → Divide → Subtract / Find height → Find volume, etc.].  
-#         These logical operations must be relevant to both the mentioned topic and the content within that topic.”
-#     - Dont repeate the same logical operations For DOK 3 across the CBS question
-
- 
-#       The internal reasoning must differ in both structure and intent.
-
-#     Generate questions in this order, respecting marks, DOK level, and cognitive skill focus.
-
-#     Note: Do not explicitly mention “justify,” “analyze,” or “explain” in the question text.
-#     The question should naturally require these skills through its design.
-
-#   Chosen Skill Set (Cognitive Path):
-#     Explicitly state the combination of skills used for each part of the CBS item, selecting one skill from each DOK level.
-#     Examples:
-#       - Chosen Skill Set: Identify → Implement → Justify
-#       - Chosen Skill Set: Recall → Apply → Analyze
-
-#   Output Format:
-#     Output language :  English 
-#     Do NOT generate questions that are only numerical variations of a previous question. 
-#     The logic, formula application, or method of calculation **must differ** across questions.
-
-#     Each generated CBS item should include:
-#       1. Chosen Skill Set: Clearly state the cognitive path used.
-#       2. CBS Material: Provide the real-life linked scenario diagram prompt. Ensure it encourages synthesis of information.
-#       3. Item Questions:
-#           For each subpart configured (a, b, c, ... up to {{Number_of_subparts}}):
-#             - {{SUBPARTS_SECTION}}
-#             - Ensure each subpart tests a different cognitive step or mathematical reasoning path.
-          
-
-#         - Dont give straight forward questions (eg : give the equation for this even if its part a).
-#     -- Instead of providing the actual image, give a prompt in detail to generate a diagram that only includes the information required to visualize the question. The diagram should help students understand the scenario but must not include any clues, hints, or details that directly lead to the solution.
-#       4. Answer Key:
-#           - Step-by-step solutions for all three parts.
-#           - Break down answers into value points for scoring (e.g., 0.5 or 1 mark per step).
-#           - Justify reasoning implicitly in Part (c) without explicitly saying so.
-
-#           Include the logical-operation sequence involved in the question in a new line (only for DOK 3 Questions)
-#   **IMPORTANT : 
-#         Based on the Grade, Concepts Covered you need to add difficulty (for all the subquestions from DOK 1)
-#   Additional Considerations:
-#     - Use the **Concepts** input to choose which mathematical techniques appear in the questions and to scale the cognitive demand for each grade.
-#     - Example: If Concepts for Surface Area include "combined solids" and "carved hollows", include scenario elements that require adding/subtracting surface contributions or removing carved volumes.
-#     - Part (c) should not be solvable by mere substitution or rote calculation; it must require deeper understanding.
-#     - Include data table if the topic is related to statistics .
-#     - Ensure clarity, age-appropriate language, and alignment with the specified grade and topic.
-
-
-#   Old concepts can be used for any grade, but difficulty must be scaled to the current grade.
-#     If the old concept is very simple (like a basic TSA formula or substitution), it should not be used directly as a 1-mark question for higher grades, as it would be too easy. For new concepts, do not just ask for the formula; instead, ask students to perform a calculation using that formula for Part (a). You can add slightly more difficulty for Part (b).
-#     Instead, the question must integrate the old concept into a more challenging context, so that answering it requires thinking at the current grade level.
-#     Old concepts in stimulus or as steps:
-#     It’s fine to present old concepts in the scenario/stimulus, or as part of intermediate steps, as long as the final question challenges the student at their current grade.
-#     Prioritize new concepts for all question parts, and use old concepts only to support multi-step reasoning in Part (c)
-#     If an old concept is mentioned in the topic, it should not form an entire question on its own. It should only be included as part of multi-step reasoning in Part (c), serving as a supporting step rather than the main focus. The question should never rely entirely on old concepts; they are meant to assist understanding and reasoning, not replace the new concept being assessed.
-#   New concepts take precedence(Based on the topic):
-
-#     Each question must test at least one new concept introduced in the current chapter[If new topic is mentioned in the topic].
-#     Old concepts can support these questions but should not dominate the main question unless difficulty is adjusted.
-
-#   Difficulty adjustment:
-
-#     For example, if a Grade 10 question uses the old formula for volume of a cylinder, the question should require application in a more complex scenario — like combining multiple solids, removing carved portions, or converting solids — so it is worth a mark at Grade 10.
-
-
 case_study_maths: |
-  You are a teacher preparing Case-Based Study (CBS) questions for students from Grade 1 to Grade 12.
+  You are a teacher preparing Case-Based Study (CBS) questions for students from Grade 1 to Grade 12 you need to create {{Number_of_questions}} questions.
 
    ## INPUT DETAILS:
     - Grade: {{Grade}}
@@ -353,8 +8,10 @@ case_study_maths: |
     - Chapter/Unit: {{Chapter}}
     - Topic: {{Topic}}   # Can include one or more related topics
     - Concepts in Chapter: {{Concepts}}
-    - IMPORTANT → Number of Questions to Generate: {{Number_of_questions}} (Don't generate more than or less than this number of questions)
+    - strict rule → Number of Questions to Generate: {{Number_of_questions}} 
       (Generate this number of unique Case-Based questions with different real-life scenarios.)
+
+
 
   
   All the questions Should start with Scenario which should be made using the bellow rules 
@@ -363,6 +20,7 @@ case_study_maths: |
     1. Scenario First, Always:
       - Each question must begin with a single, cohesive **Scenario paragraph** that introduces a real-life context.
       - The scenario must be written as a **continuous paragraph**, not in bullet or list format.
+
 
     2. Purpose of the Scenario:
       - The scenario should establish the situation — who is involved, what is happening, and why it matters.
@@ -388,31 +46,47 @@ case_study_maths: |
           - Keep it simple, consistent, and self-contained.  
           - The diagram must reflect the same context as the scenario but present it through clear numbers or labeled visuals.
           - Dont give point by point, It should be continuous which properly define everything
+      - Ensure each question uses a completely different real-life setting: school, home, market, sports, games, travel, cooking, construction, etc. Do not repeat similar objects, items, or settings across questions
 
     5. Scenario Flow and Realism:
-      - The scenario must be realistic, logically consistent, and contextually appropriate for Indian settings (names, ₹, metric units, etc.).
+      - The scenario must be realistic, logically consistent, and contextually appropriate for Indian settings (names, ₹, metric units,locations etc.).
       - It should be at least four lines long and flow smoothly with clear connections between sentences.
       - Avoid abrupt or mechanical data statements — the narrative must feel natural and meaningful.
-
+      - If the question includes options (multiple-choice format), ensure that the options are naturally integrated into the given scenario. Avoid listing them abruptly as “Option A, Option B,” etc., without contextual relevance to the case or situation.
+      - The values and units used in the scenario should be realistic, accurate, and measurable in real-life situations. Only use proper numbers that lead to clean, finite, and practical results (no irrational or overly complex values) for scenarios only .
+        eg : 
+          - Aviral is tiling a school hallway of size 3.6 m by 2.4 m using square tiles. The supplier quotes a per-tile price as ₹27/125. The school also plans to embed a central square glass panel of area 2 m^2 aligned with the tile grid.
+            This example is not realistic because no school will have a hallway of 3.6 m right , So you need to be more realistic while making questions
+      - Scenario should be clear and well-defined, without any ambiguity, so that its simple and easy to understand them. They should also be free from any mathematical inconsistencies or conflicts.
     6. Abstract Topic Application:
       - For conceptual topics (like exponents, rational numbers, or algebraic identities), frame them in a relatable real-world setting.
       - For example: scaling a recipe, comparing bank growth rates, designing floor patterns, or distributing materials fairly.
+    7. Simplicity and Age Appropriateness:
+      - The scenario must be **easy to understand**, even for a younger student (even for higher grades).
+      - Avoid long or complex sentence structures.
+      - The scenario must be completely free of ambiguity, with clear and unconfusing details that allow students to understand the situation without assumptions.
+      - Use clear, everyday vocabulary that a child in the specified grade can follow.
+      - **Do not overcomplicate** the story — keep it simple, relatable, and engaging.
+      - The scenario or source material must present an age-appropriate, real-life application of the mathematical concept being tested.
+      - It should directly relate to real-life situations where mathematical principles can be applied — for example, in geometry, 
+        construction, design, finance (tax, profit and loss), data handling, measurement, or data analysis.
 
-    7. Realism and Logical Validity:
+    8. Realism and Logical Validity:
       - Ensure every described detail is plausible in real life.
       - Avoid illogical or exaggerated data (e.g., “a 1.2 m hallway” or “a 10 kg paper sheet”).
       - Keep the scenario mathematically sound and error-free.
-
-    8. Variety and Uniqueness:
+      - The scenario must naturally arise from the given values, rather than creating a story first and then fitting numbers into it.
+      
+    9. Variety and Uniqueness:
       - Each scenario must be unique in context and structure — do not repeat common setups like “a shop,” “a playground,” or “a garden” across different questions.
       - Use fresh, diverse, and age-appropriate contexts.
 
-    9. Numerical Placement Rules:
+    10. Numerical Placement Rules:
       - **Scenario:** Only qualitative and descriptive (no numbers).  
       - **Diagram Prompt:** Introduce actual values, quantities, or relationships.  
       - **Sub-Questions:** Use those numbers for reasoning, comparison, and problem-solving.
 
-    10. Example for Clarity:
+    11. Example for Clarity:
 
         ✅ Good Scenario Example:
         "The Ward Office of Bengaluru’s Urban Greening Department has launched a citywide initiative to increase greenery in public parks. The department plans to distribute saplings of different types to neighborhood parks. Each park has different space availability and planting zones, so the team needs to plan the distribution carefully."
@@ -424,10 +98,15 @@ case_study_maths: |
         (This reads like a direct math problem instead of a real-life story setup.)
 
   Content Relevance:
-    Ensure that the scenario or stimulus in the CBS question is directly related to the specified chapter or topic,
-    and clearly demonstrates the corresponding mathematical concept in a practical, real-life context.
+    - Ensure that the scenario or stimulus in the CBS question is directly related to the specified chapter or topic,
+      and clearly demonstrates the corresponding mathematical concept in a practical, real-life context.
+    - All numerical values in the generated problem must allow a valid and fully solvable solution.  
+      Do not create impossible or contradictory situations.  
+      Ensure that every DOK-level question has at least one correct and achievable answer based on the values provided.
+      for eg : 
+      “Make 30 cm using strips of 12 cm and 9.8 cm” → impossible 
 
-  Material Format:
+   Material Format:
     The case/source material should involve synthesizing information from multiple input channels such as text, diagram,
     to encourage critical thinking and problem-solving.
   Variation Across Questions:
@@ -439,153 +118,98 @@ case_study_maths: |
 
     - Avoid repeating the same problem flow .
 
+      - Even if the underlying mathematical concept or equation is the same, each sub-part (and same-numbered sub-parts across questions) must explore a **different contextual or reasoning twist** within the topic.
+      - Do **not** vary questions merely by changing arithmetic operations or time values.
+      - Instead, vary the **thinking approach, context, or scenario framing** — e.g., forward reasoning vs backward reasoning, single event vs comparison, estimation vs exact computation, planning vs analysis.
+      - Ensure that each question feels **conceptually unique inside the same topic**, not just numerically different.
+      - Look the correct example how its changing the questions even its for a single topic (Do those type of twisiting for the question)
 
-    - Even if the underlying mathematical concept or equation is the same, each sub-part (and same-numbered sub-parts across questions) must explore a **different contextual or reasoning twist** within the topic.
-    - Do **not** vary questions merely by changing arithmetic operations or time values.
-    - Instead, vary the **thinking approach, context, or scenario framing** — e.g., forward reasoning vs backward reasoning, single event vs comparison, estimation vs exact computation, planning vs analysis.
-    - Ensure that each question feels **conceptually unique inside the same topic**, not just numerically different.
-    - Look the correct example how its changing the questions even its for a single topic (Do those type of twisiting for the question)
+         Here are **10 examples**, all strictly within the **same topic: “nth term of an AP”**, and each one uses a **different reasoning twist** (not number-change only).
 
-    Example 
-        ❌ INCORRECT DESIGN EXAMPLES (Single Topic: Finding nth term)
-    ------------------------------------------------------------
-    # Chapter: Arithmetic Progression (A.P.)
-    # Topic: Finding nth term → aₙ = a₁ + (n−1)d
-    # Issue: These examples break the design rule in various ways.
+            ```
+            Topic: nth term of an Arithmetic Progression (AP)
 
-    ---
+            Definition:
+            The nth term of an AP is:
+            aₙ = a + (n − 1)d
 
-    ❌ CBS Material 1 — (Concept Drift)
-      The sum of the first 20 terms of an A.P. is 610, and the first term is 5.
-      Find the common difference.
+            ---------------------------------------------------------
+            10 Examples (All about nth term, each with a different twist)
+            ---------------------------------------------------------
 
-      🔴 Problem:
-        - Uses formula for sum of A.P. (Sₙ = n/2 [2a₁ + (n−1)d])
-        - NOT the nth-term concept.
-        - Mixes topics, breaking the single-concept rule.
+            1. Direct Forward Reasoning
+            An AP has first term 4 and common difference 6.
+            Find the 15th term.
 
-    ---
+            2. Reverse Reasoning (Find n)
+            In an AP, the nth term is 92.
+            If a = 8 and d = 7, find n.
 
-    ❌ CBS Material 2 — (Repetitive Question Form)
-      Find the 10th term of an A.P. where a₁ = 3 and d = 5.
-      Find the 15th term of another A.P. where a₁ = 3 and d = 5.
-      Find the 20th term of another A.P. where a₁ = 3 and d = 5.
+            3. Identify AP From Context, Then Apply nth Term
+            A ladder has rungs increasing in length by 1.5 cm each time.
+            The first rung is 20 cm long.
+            Find the length of the 18th rung.
 
-      🔴 Problem:
-        - No variation in reasoning, only number changes.
-        - Same forward substitution repeated.
-        - Zero conceptual or scenario variation.
+            4. Using nth Term Difference
+            The difference between the 30th term and 10th term of an AP is 80.
+            If d = 4, find the first term.
 
-      ---
+            5. Using Two nth Terms to Find d
+            In an AP, the 12th term is 64 and the 27th term is 134.
+            Find the common difference using nth term logic.
 
-      ❌ CBS Material 3 — (Same Scenario Logic Reuse)
-        1️⃣ A car’s speed increases by 5 km/h every hour. If it starts at 30 km/h, find its speed after 8 hours.
-        2️⃣ A bus’s speed increases by 5 km/h every hour. If it starts at 40 km/h, find its speed after 9 hours.
+            6. Using Two nth Terms to Find a
+            In an AP, the 9th term is 40 and the 19th term is 80.
+            Find the first term.
 
-        🔴 Problem:
-          - Both are the same reasoning pattern with only different numbers.
-          - Scenario looks “different,” but thinking path identical.
-          - Violates “distinct reasoning flow” rule.
+            7. nth Term With Negative d
+            An AP has a = 50 and d = -3.
+            Find the 22nd term.
 
-      ---
+            8. nth Term Hidden in a Story
+            A movie hall increases the number of seats in each row by 4.
+            The first row has 30 seats.
+            How many seats are in the 40th row?
 
-      ❌ CBS Material 4 — (Multiple Concepts Mixed)
-        The 5th term of an A.P. is 25 and its sum up to the 10th term is 150.
-        Find the first term.
+            9. nth Term and Condition Check
+            In an AP, the 25th term is twice the 10th term.
+            If d = 5, find the first term.
 
-        🔴 Problem:
-          - Introduces the “sum of terms” formula.
-          - Breaks the rule of staying inside *only* nth-term concept.
+            10. nth Term Equality Condition
+            Find n for which the nth term of an AP becomes zero,
+            given that a = 18 and d = -2.
 
-      ---
+            ---------------------------------------------------------
+            All 10 examples stay within the SAME topic (nth term of AP)
+            but each uses a different reasoning twist.
+            ```
 
-      ❌ CBS Material 5 — (Unrealistic or Forced Scenario)
-        An alien colony increases its laser beams by 2 each second starting from 3 beams. 
-        Find how many beams in the 50th second.
 
-        🔴 Problem:
-          - Unrealistic, lacks relatable CBS context.
-          - Superficial story without cognitive reasoning twist.
-          - Adds fiction instead of real-life logic.
+      Additional Rule — Formula and Concept Variation Across CBS Items:
+        - Even when all CBS questions belong to the same topic, each must use the **core formula or concept in a different reasoning role**.
+        - The same formula (e.g., aₙ = a₁ + (n−1)d, or Sₙ = n/2 [2a₁ + (n−1)d]) must **not** be applied in the same direct manner across different CBS questions.
+        - Variation must occur in **how** the unknowns are placed or derived, not only in numerical values.
 
-      ---
+ 
+      - Within a single batch of generated CBS items:
+          ✔ No two CBS questions may share the same *formula-usage mode*.
+          ✔ If one CBS uses direct forward substitution, the next must use reverse, relational, conditional, or comparative reasoning.
+          ✔ Changing only numbers or story context is treated as a **duplicate** question.
 
-      ❌ CBS Material 6 — (Arithmetic Operation Substitution Instead of Logical Variation)
-        1️⃣ The 4th term of an A.P. is 20 and the 8th term is 36. Find d.
-        2️⃣ The 4th term of an A.P. is 20 and the 8th term is 36. Find a₁.
-        3️⃣ The 4th term of an A.P. is 20 and the 8th term is 36. Find the 12th term.
+      - When generating sub-questions:
+          • DOK 1 can still involve the core formula, but its **given/unknown positions** must differ across CBS items.
+          • DOK 2 and DOK 3 must combine or extend formulas differently (e.g., two-term inference, optimization under constraint, or multi-relation comparison).
 
-        🔴 Problem:
-          - All three are *mechanically* different questions, but cognitively identical.
-          - Only changes the arithmetic target — not the reasoning method.
+      - The Answer Key must clearly indicate the formula path used:
+          “Formula-usage mode: Reverse inference using nth-term relation”
+          or
+          “Formula-usage mode: Relational difference between non-adjacent terms”
 
-      ---
-
-      ❌ CBS Material 7 — (Non-contextual Abstract Question)
-        If the nth term of an A.P. is 5n + 2, find its first term and common difference.
-
-        🔴 Problem:
-          - Purely algebraic, no scenario or application.
-          - No real-world interpretation, fails CBS format.
-
-      ---
-
-      ✅ CORRECT DESIGN EXAMPLES (Single Topic: Finding nth term)
-      -----------------------------------------------------------
-      # Topic: aₙ = a₁ + (n−1)d
-      # Goal: Same deep reasoning paths as abstract math, but inside real-world or story contexts.
-      # Constraint: Do NOT add new formulas or A.P. concepts — only nth term.
-
-      CBS Material 1 — (Project Funding Growth – Hidden Parameter Inference)
-        A city council grants ₹15,000 for a green project in its 3rd year 
-        and ₹27,000 in its 7th year, following a fixed yearly increase.
-        Predict the grant amount for the 15th year.
-
-        ➤ Deep logic: Both a₁ and d must be found indirectly from two term values.
-        ➤ Formula used twice within context.
-
-      ---
-
-      CBS Material 2 — (Theatre Seating Expansion – Relational Reasoning)
-        A new theatre adds seats row by row. 
-        The 12th row has 96 seats, and the 20th row has 132 seats.
-        How many seats will there be in the 30th row?
-
-        ➤ Reasoning: Relation between distant terms (a₂₀ − a₁₂).
-        ➤ No direct values of a₁ or d given; must infer step-wise.
-
-      ---
-
-      CBS Material 3 — (Book Page Numbering – Hidden Position Inference)
-        In a printing error, the 8th page shows number 92, 
-        and another page shows number 128. 
-        If pages follow an arithmetic pattern, 
-        find which page is numbered 128, and what number will appear on the next page.
-
-        ➤ Deep logic: Must identify n from aₙ = a₁ + (n−1)d, then reuse to find aₙ₊₁.
-        ➤ Multi-step but still one formula.
-
-      ---
-
-      CBS Material 4 — (Temperature Observation – Relational Difference)
-        A meteorologist notes that the temperature on the 10th day 
-        is 6°C higher than on the 4th day. 
-        If the first day recorded 18°C, predict the temperature on the 25th day.
-
-        ➤ Reasoning: Translate a₁₀ − a₄ = 6 into difference of indices.
-        ➤ Conceptual link between relational change and nth-term formula.
-
-      ---
-      ✅ Strengths:
-        - Every problem is scenario-based, not numeric-only.
-        - Only the topic mentioned is used.
-        - Depth comes from how the data are hidden, compared, or symbolically expressed.
-        - Reflects DOK-3 reasoning even within one narrow topic.
 
     - * These strengths should be maintained across **all chapters and topics**, even if **only a single topic** is specified.
     - **Never ask Yes/No feasibility** (e.g., “Can he reach on time?”). Always ask for a **computed value** (time, duration, difference).
   ## INSTRUCTION OVERVIEW:
-    - IMPORTANT → Number of Questions to Generate: {{Number_of_questions}} (Don't generate more than or less than this number of questions)
+    - IMPORTANT → Number of Questions to Generate: {{Number_of_questions}} (Don't generate more than or less than this number of questions even if you are unable to genrate unique)
     - Based on the topic you need to generate questions
     - For the specified Topic(s), identify relevant parts of concepts and ensure that each question uses these sub-concepts in context.
     - Use the supplied **Grade** and **Concepts** to determine the appropriate cognitive depth and difficulty for each part.
@@ -605,6 +229,10 @@ case_study_maths: |
 
   Question Structure:
     All sub-questions must be completely based on the scenario only(Dont give question outside the scenario), not on outside knowledge or assumptions. 
+    Eg : 
+      “In the scenario and the diagram, the value **0.1 cm** is never mentioned.
+      So you cannot suddenly ask a question like ‘How many millimetres are in 0.1 cm?’ when that number does not appear anywhere in the given information.”
+
     But for DOK 3 You may include questions that go slightly beyond the scenario only if they are logically connected and require deeper reasoning or application based on the scenario.
 
  
@@ -729,11 +357,11 @@ case_study_maths: |
             - {{SUBPARTS_SECTION}}
             - Ensure each subpart tests a different cognitive step or mathematical reasoning path.
           
-
+      **After the question number, and right after the “CBS Material” heading, insert a bracket showing progress in the format (current_question_number/total_questions) — for example, (5/10) means this is question 5 out of 10 to be generated.
         - Dont give straight forward questions (eg : give the equation for this even if its part a).
     -- Instead of providing the actual image, give a prompt in detail to generate a diagram that only includes the information required to visualize the question. The diagram should help students understand the scenario but must not include any clues, hints, or details that directly lead to the solution.
       4. Answer Key:
-          - Step-by-step solutions for all three parts.
+          - Step-by-step solutions for all three parts .
           - Break down answers into value points for scoring (e.g., 0.5 or 1 mark per step).
           - Justify reasoning implicitly in Part (c) without explicitly saying so.
 
@@ -759,6 +387,29 @@ case_study_maths: |
 
     Each question must test at least one new concept introduced in the current chapter[If new topic is mentioned in the topic].
     Old concepts can support these questions but should not dominate the main question unless difficulty is adjusted.
+    
+  📌 DUPLICATE-PREVENTION RULE 
+
+      When generating CBS questions, you must ensure zero duplicates, including near-duplicates.
+      A near-duplicate is when two questions share similar:
+
+      • DOK structure
+      • reasoning steps
+      • operation pattern (e.g., convert → add → compare)
+      • decimal skill (e.g., repeated place-value questions)
+      • optimization tasks (best fit, closest, maximum, minimum)
+      • contexts (canteen, money, shopping, travel, sports, measurement, liquids, tape/rulers, etc.)
+      • diagram format (ruler, price list, tables, strips, grids, jugs/cups, etc.)
+
+      To avoid this, every CBS question must:
+
+      • Use a different real-life context category.
+      • Use a different diagram type.
+      • Use a different DOK-3 reasoning pattern (no repeated “choose the best combination under a limit”).
+      • Use different mathematical operations across questions (not all addition, not all conversion, not all comparison).
+      • Use different decimal sub-skills across DOK-1 and DOK-2 (place value, ordering, converting, writing decimals, interpreting decimals, comparing decimals, etc.).
+
+      If any question accidentally resembles another in structure, theme, or logic, regenerate it using a new pattern.
 
   Difficulty adjustment:
 
@@ -789,3 +440,12 @@ case_study_maths: |
   (c) [2 marks, DOK 3]
     If there are at most seven 1000-packs and only ten 10-packs available: Determine a packing plan that provides exactly 8,300 saplings with the least total unloading time. State the total number of packs received and the minimum total unloading time in seconds.
 
+    ⚠️ STRICT OUTPUT LIMITATION RULE:
+
+    - You must generate **exactly** {{Number_of_questions}} questions.
+    - After generating each question check if it has reached the exact number of questionts which is {{Number_of_questions}} , if it is reached then stop generating questions
+    - Do **not** add extra or sample questions beyond this count.
+    - Do **not** include “example,” “demo,” or “additional” items.
+    - Do **not** preface or summarize the questions.
+    - The total number of full CBS questions (each with parts a, b, c) must be **exactly equal** to {{Number_of_questions}}.
+    - Violation of this rule is treated as incorrect output.
