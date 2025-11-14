@@ -5,6 +5,9 @@ import yaml
 import time
 import threading
 import queue
+from google import genai
+from google.genai import types # Important: Need to import types for configuration objects
+
 
 from openai import OpenAI         # GPT-5 client (keeps your original usage)
 from google import genai         # Gemini client
@@ -121,17 +124,49 @@ def run_gemini_stream(prompt, api_key, q: queue.Queue, done_event: threading.Eve
     client = genai.Client(api_key=api_key)
     start = time.time()
     try:
-        # generate_content_stream yields incremental chunks
-        response = client.models.generate_content_stream(
-            model="gemini-2.5-pro",
-            contents=[prompt]
+        
+        # 1. Define the configuration objects
+        thinking_config = types.ThinkingConfig(
+            # output_thinking=True is not necessary if you use thinkingBudget > 0 or -1,
+            # but include_thoughts=True is needed to stream the *text* of the thoughts.
+            # The documentation suggests using 'include_thoughts=True' to view thought summaries.
+            include_thoughts=True,     
+            
+            # For 2.5 Pro, thinking is on by default.
+            # We set a manual budget of 5000 tokens here.
+            # Range for 2.5 Pro is 128 to 32768. Use -1 for Dynamic/Auto.
+            thinking_budget=5000       
         )
-        # iterate stream
-        for chunk in response:
-            # chunk may have .text (or similar) — use .text per example
-            text_chunk = getattr(chunk, "text", "") or ""
-            if text_chunk:
-                q.put(text_chunk)
+
+        config = types.GenerateContentConfig(
+            thinking_config=thinking_config
+        )
+
+        try:
+            # generate_content_stream yields incremental chunks
+            response = client.models.generate_content_stream(
+                model="gemini-2.5-pro",
+                contents=[prompt],
+                config=config # <--- This is the correct parameter name!
+            )
+            
+            # iterate stream
+            for chunk in response:
+                # chunk may have .text (or similar) — use .text per example
+                text_chunk = getattr(chunk, "text", "") or ""
+                if text_chunk:
+                    q.put(text_chunk)
+                    
+            # stream finished
+        except Exception as e:
+            print(f"An error occurred: {e}")
+        # # iterate stream
+        # for chunk in response:
+        #     # chunk may have .text (or similar) — use .text per example
+        #     text_chunk = getattr(chunk, "text", "") or ""
+        #     if text_chunk:
+        #         q.put(text_chunk)
+        
         # stream finished
     except Exception as e:
         q.put(f"\n\n[Gemini stream error] {e}\n")
