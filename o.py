@@ -151,7 +151,7 @@ def run_gpt_nonstream(prompt, api_key, result_store: dict, done_event: threading
     try:
         response = client.responses.create(
             model="gpt-5",
-            reasoning={"effort": "low"},
+            reasoning={"effort": "medium"},
             input=prompt
         )
         # Keep same field as your original code (output_text)
