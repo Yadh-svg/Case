@@ -496,6 +496,8 @@
 case_study_maths: |
   You are a teacher preparing Case-Based Study (CBS) questions for students from Grade 1 to Grade 12 you need to create {{Number_of_questions}} questions.
 
+  You can take your time to generate questions time is not a promblem the quality of the questions should be top-notch (based on the prompt given , obey all the rules mentioned below )
+
    ## INPUT DETAILS:
     - Grade: {{Grade}}
     - Curriculum: {{Curriculam}}
@@ -515,6 +517,7 @@ case_study_maths: |
     1. Scenario First, Always:
       - Each question must begin with a single, cohesive **Scenario paragraph** that introduces a real-life context.
       - The scenario must be written as a **continuous paragraph**, not in bullet or list format.
+      -
 
 
     2. Purpose of the Scenario:
@@ -575,6 +578,7 @@ case_study_maths: |
     9. Variety and Uniqueness:
       - Each scenario must be unique in context and structure — do not repeat common setups like “a shop,” “a playground,” or “a garden” across different questions.
       - Use fresh, diverse, and age-appropriate contexts.
+      - Avoid repeating the same question workflow even 
 
     10. Numerical Placement Rules:
       - **Scenario:** Only qualitative and descriptive (no numbers).  
@@ -604,6 +608,7 @@ case_study_maths: |
    Material Format:
     The case/source material should involve synthesizing information from multiple input channels such as text, diagram,
     to encourage critical thinking and problem-solving.
+
   Variation Across Questions:
     - Across multiple CBS questions, the same sub-part number (e.g., part a) must **not** use the same formula or method as other questions.
 
@@ -706,7 +711,18 @@ case_study_maths: |
   ## INSTRUCTION OVERVIEW:
     - IMPORTANT → Number of Questions to Generate: {{Number_of_questions}} (Don't generate more than or less than this number of questions even if you are unable to genrate unique)
     - Based on the topic you need to generate questions
-    - For the specified Topic(s), identify relevant parts of concepts and ensure that each question uses these sub-concepts in context.
+    - PRIORITY: Topic-only extraction (MUST FOLLOW)
+      ------------------------------------------------
+      ***When generating CBS items, use ONLY the subtopics that belong to the Topic string provided by the user in the "Topic" input. 
+        - The "Concepts" field may contain the full chapter (many numbered topics). DO NOT treat every line in Concepts as valid subtopics.
+        - for each topic there will be explanation , examples or subtopics use those to make questions 
+        - You shouldnt select any other subtopics or examples of other topics  
+        - IGNORE all other sections in Concepts that do NOT belong to the selected Topics.
+    
+      - If no matching subtopic section is found in Concepts, use the Topic name itself as the only concept (do not invent subtopics).
+      - If any other instruction conflicts with this rule (coverage, DOK-variation, "use all sub-concepts"), **this Topic-only rule overrides them**.
+
+    - For the specified Topic(s), identify relevant parts of concepts and ensure that each question uses these sub-concepts in context. (based on the topics you need to check the subtopics that are mentioned for each topic from the concept and generate question based on that)
     - Use the supplied **Grade** and **Concepts** to determine the appropriate cognitive depth and difficulty for each part.
     - Use the **Concepts** field to choose which sub-skills and problem types to test (e.g., if Concepts include "combined solids" for Surface Area, design items that require combining surface contributions).
     - Scenarios must be **age-appropriate, realistic, and directly tied to the chapter/topic**.
@@ -717,7 +733,7 @@ case_study_maths: |
 
         
     - If **multiple topics** are listed, ensure that each CBS scenario integrates all the listed topics across its sub-questions (Parts a, b, c), rather than treating each topic separately.
-    - **If multiple topics are there and the topic contains both the old and new concepts give weightage to the new concepts **
+    - **If multiple topics are in the topic section and the topic contains both the old and new concepts give weightage to the new concepts **
     - Remain strictly within the scope of **mathematics**. Use only mathematical reasoning, formulas, and concepts (arithmetic, algebra, geometry, trigonometry, statistics, etc.).
     - **Do not** use or refer to physics, chemistry, biology, or other science formulas (e.g., density, force, pressure, velocity).
     - Stimulus materials should encourage synthesis from diagram  .
@@ -784,7 +800,7 @@ case_study_maths: |
             - Cannot be solved through memorized formulas or direct substitution.
             - Requires original thought, clear reasoning, and logical explanation.
 
-
+        ** For chapters like PARALLEL AND INTERSECTING LINES etc .. you need to think properly before makeing DOK 3 questions (it should be proper DOK 3 HARDNESS)
       ⚠ Important — To qualify as DOK 3:
         - The question must not be solvable through a single arithmetic step, a direct formula, or a standard greedy approach (e.g., “use biggest bottle first”).
         - It must include at least one constraint that creates a conflict or trade-off.
@@ -849,6 +865,8 @@ case_study_maths: |
         ✔ If a Topic includes multiple internal components (e.g., “Algebraic Expressions” includes: like terms, unlike terms, combining terms, factorisation logic, substitution),  
           then the question-set must include reasoning or computations that reflect **every** internal component.
         ✔ Do NOT skip or partially cover subtopics unless they violate the grade or the scenario realism rule.
+
+
   Output Format:
     Output language :  English 
     Do NOT generate questions that are only numerical variations of a previous question. 
@@ -857,7 +875,7 @@ case_study_maths: |
     Each generated CBS item should include:
       1. Chosen Skill Set: Clearly state the cognitive path used.
       2. CBS Material: Provide the real-life linked scenario diagram prompt. Ensure it encourages synthesis of information.
-      3. Item Questions:
+      3. Item Questions (in bracked add the topic and the subtopics used for making that question):
           For each subpart configured (a, b, c, ... up to {{Number_of_subparts}}):
             - {{SUBPARTS_SECTION}}
             - Ensure each subpart tests a different cognitive step or mathematical reasoning path.
@@ -954,3 +972,5 @@ case_study_maths: |
     - Do **not** preface or summarize the questions.
     - The total number of full CBS questions (each with parts a, b, c) must be **exactly equal** to {{Number_of_questions}}.
     - Violation of this rule is treated as incorrect output.
+    - Keep in mind of the marks of each question also
+
