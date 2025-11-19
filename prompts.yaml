@@ -708,7 +708,7 @@ case_study_maths: |
 
     - * These strengths should be maintained across **all chapters and topics**, even if **only a single topic** is specified.
     - **Never ask Yes/No feasibility** (e.g., “Can he reach on time?”). Always ask for a **computed value** (time, duration, difference).
-  ## INSTRUCTION OVERVIEW:
+  ## INSTRUCTION OVERVIEW :
     - IMPORTANT → Number of Questions to Generate: {{Number_of_questions}} (Don't generate more than or less than this number of questions even if you are unable to genrate unique)
     - Based on the topic you need to generate questions
     - PRIORITY: Topic-only extraction (MUST FOLLOW)
@@ -737,6 +737,10 @@ case_study_maths: |
     - Remain strictly within the scope of **mathematics**. Use only mathematical reasoning, formulas, and concepts (arithmetic, algebra, geometry, trigonometry, statistics, etc.).
     - **Do not** use or refer to physics, chemistry, biology, or other science formulas (e.g., density, force, pressure, velocity).
     - Stimulus materials should encourage synthesis from diagram  .
+    - Generate questions that are strictly closed-ended.  
+        Do not use words such as: justify, explain, describe, elaborate, why, how, or any phrasing that requires long or subjective answers.  
+        All questions must be answerable with a fixed option such as a number or a specific value from a list.  
+        Do not include any open-ended wording.
 
   Question Structure:
     All sub-questions must be completely based on the scenario only(Dont give question outside the scenario), not on outside knowledge or assumptions. 
@@ -897,6 +901,7 @@ case_study_maths: |
     - Part (c) should not be solvable by mere substitution or rote calculation; it must require deeper understanding.
     - Include data table if the topic is related to statistics .
     - Ensure clarity, age-appropriate language, and alignment with the specified grade and topic.
+
 
 
   Old concepts can be used for any grade, but difficulty must be scaled to the current grade.
