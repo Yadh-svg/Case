@@ -110,7 +110,7 @@ def run_gemini_stream(prompt, api_key, q, done_flag, result_store):
     try:
         client = genai.Client(api_key=api_key)
         config = types.GenerateContentConfig(
-            thinking_config=types.ThinkingConfig(include_thoughts=False, thinking_budget=3000)
+            thinking_config=types.ThinkingConfig(include_thoughts=False, thinking_budget=10000)
         )
         stream = client.models.generate_content_stream(model="gemini-2.5-pro", contents=[prompt], config=config)
         for chunk in stream:

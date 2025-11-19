@@ -123,7 +123,7 @@ def run_gemini_stream(pdf_bytes, prompt, api_key, q, done_flag, result_store):
         client = genai.Client(api_key=api_key)
         pdf_part = types.Part.from_bytes(data=pdf_bytes, mime_type="application/pdf")
         config = types.GenerateContentConfig(
-            thinking_config=types.ThinkingConfig(include_thoughts=False, thinking_budget=3000)
+            thinking_config=types.ThinkingConfig(include_thoughts=False, thinking_budget=10000)
         )
         stream = client.models.generate_content_stream(
             model="gemini-2.5-pro",
