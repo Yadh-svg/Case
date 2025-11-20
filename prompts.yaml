@@ -737,10 +737,7 @@ case_study_maths: |
     - Remain strictly within the scope of **mathematics**. Use only mathematical reasoning, formulas, and concepts (arithmetic, algebra, geometry, trigonometry, statistics, etc.).
     - **Do not** use or refer to physics, chemistry, biology, or other science formulas (e.g., density, force, pressure, velocity).
     - Stimulus materials should encourage synthesis from diagram  .
-    - Generate questions that are strictly closed-ended.  
-        Do not use words such as: justify, explain, describe, elaborate, why, how, or any phrasing that requires long or subjective answers.  
-        All questions must be answerable with a fixed option such as a number or a specific value from a list.  
-        Do not include any open-ended wording.
+   
 
   Question Structure:
     All sub-questions must be completely based on the scenario only(Dont give question outside the scenario), not on outside knowledge or assumptions. 
@@ -756,8 +753,26 @@ case_study_maths: |
       - Ensure the difficulty, DOK level, and cognitive demand match the part’s configuration.
       - Based on the DOK level and the difficulty you need to generate the question accordingly.
  
+     STRICT RULES:
+     For all the questions (DOK 1, 2, 3)
+      1. Do NOT include any definition-type, relationship-type, concept-type, or theory-type questions.
+        (Example of forbidden formats: “What is the relationship between…?”, “State the property…”, 
+          “What do we call…?”, “Why does…?”, “Explain…”, “Describe…”, "Prove that" etc.)
 
-      DOK 1 : Recall or identify a fact, formula, or concept directly from the context. Single-step, straightforward.
+      2. A question is INVALID if:
+        - it can be answered with a sentence or explanation,
+        - it involves definitions, properties, or conceptual descriptions,
+        - it asks for a relationship between quantities unless the answer is a specific number.
+
+      NOT ALLOWED:
+      - “What is the relationship between the angles…”
+      - “State the property of…”
+      - “Define…”
+      - “Why/How/Explain/Describe…”
+      - "Prove that"
+
+
+            DOK 1 : Recall or identify a fact, formula, or concept directly from the context. Single-step, straightforward.
 
       DOK 2 : Requires **indirect or multi-step application** of formulas, patterns, or procedures. Students must:
         - Use previously derived information or intermediate results,
@@ -829,6 +844,7 @@ case_study_maths: |
         - Keep diversity in context, decision type, and problem-solving approach.
      
     Variation Across Questions and DOK 3 Reasoning Diversity:
+    
 
     - Each DOK 3 question must follow a **distinct logical-operation sequence** that fits naturally with its topic.
       The reasoning flow should depend on the underlying mathematical idea (e.g., shape-based, data-based, or algebraic).
