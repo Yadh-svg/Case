@@ -755,24 +755,21 @@ case_study_maths: |
  
      STRICT RULES:
      For all the questions (DOK 1, 2, 3)
-      1. Do NOT include any definition-type, relationship-type, concept-type, or theory-type questions.
-        (Example of forbidden formats: “What is the relationship between…?”, “State the property…”, 
+      1. Do NOT include any definition-type concept-type, or theory-type questions.
+        (Example of forbidden formats: , “State the property…”, 
           “What do we call…?”, “Why does…?”, “Explain…”, “Describe…”, "Prove that" etc.)
 
       2. A question is INVALID if:
         - it can be answered with a sentence or explanation,
         - it involves definitions, properties, or conceptual descriptions,
-        - it asks for a relationship between quantities unless the answer is a specific number.
 
       NOT ALLOWED:
-      - “What is the relationship between the angles…”
       - “State the property of…”
       - “Define…”
       - “Why/How/Explain/Describe…”
       - "Prove that"
 
-
-            DOK 1 : Recall or identify a fact, formula, or concept directly from the context. Single-step, straightforward.
+      DOK 1 : Recall or identify a fact, formula, or concept directly from the context. Single-step, straightforward.
 
       DOK 2 : Requires **indirect or multi-step application** of formulas, patterns, or procedures. Students must:
         - Use previously derived information or intermediate results,
